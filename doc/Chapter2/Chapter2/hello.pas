@@ -9,4 +9,4 @@ BEGIN {hello}
     FOR i := 1 TO 10 DO BEGIN
         writeln('Hello, world.');
     END;
-END {hello}.
+END {hello}. 
