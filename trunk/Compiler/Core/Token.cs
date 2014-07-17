@@ -34,6 +34,21 @@ namespace Compiler
         public Token() { }
 
 
+        protected void Extract() 
+        {
+        
+        
+        }
+
+        protected char CurrentChar() {
+            return source.CurrentChar();
+        }
+
+        protected char peekChar() {
+
+           return  source.PeekNextChar();
+        }
+
 
 
     }
