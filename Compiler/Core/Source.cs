@@ -9,15 +9,20 @@ namespace Compiler
 {
     public class Source : IDisposable
     {
+        #region
         public StreamReader reader;
+        public int LineNum { get { return lineNum; } }
+        public int CurrentPosition { get { return currentPos; } }
+        #endregion
+
 
         private string line;
         private int lineNum;
         private int currentPos;
         private bool closed = false;
 
-        public static  char EOL='\n';
-        public static char EOF=(char) 0;
+        public static char EOL = '\n';
+        public static char EOF = (char)0;
 
         private List<string> lines = new List<string>();
 
@@ -44,25 +49,29 @@ namespace Compiler
         {
             if (line == null) return EOF;
 
-                currentPos++;
-                if (line.Length - 1 < currentPos) {
-                    currentPos = -1;
-                    ReadLine();
-                    return EOL;
-                }
-                return line[currentPos];
+            currentPos++;
+            if (line.Length - 1 < currentPos)
+            {
+                currentPos = -1;
+                ReadLine();
+                return EOL;
+            }
+            return line[currentPos];
         }
 
-        public char PeekNextChar() {
+        public char PeekNextChar()
+        {
 
             var nextCharPos = currentPos + 1;
-            if (line.Length - 1 < nextCharPos){
+            if (line.Length - 1 < nextCharPos)
+            {
                 return EOL;
             }
             return line[nextCharPos];
         }
 
-        public String GetCurrentText() {
+        public String GetCurrentText()
+        {
 
             var stringBuilder = new StringBuilder();
             foreach (var item in lines)

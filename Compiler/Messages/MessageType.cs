@@ -6,16 +6,33 @@ using System.Threading.Tasks;
 
 namespace Compiler.Messages
 {
+    public enum MessageType
+    {
+        SOURCE_LINE, SYNTAX_ERROR,
+        PARSER_SUMMARY, INTERPRETER_SUMMARY, COMPILER_SUMMARY,
+        MISCELLANEOUS, TOKEN,
+        ASSIGN, FETCH, BREAKPOINT, RUNTIME_ERROR,
+        CALL, RETURN,
+    }
 
-    
 
-    public class MessageType
+    public class Message
     {
 
         public string text;
+        public object obj;
+        public MessageType messageType;
 
-        public MessageType(string text) {
+        public Message(string text)
+        {
             this.text = text;
+        }
+
+        public Message(MessageType type, Object obj)
+        {
+            this.messageType = type;
+            this.obj = obj;
+
         }
 
     }

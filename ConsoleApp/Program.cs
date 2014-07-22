@@ -12,7 +12,13 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
 
-            //var source = new Source("../../Sources/File1.txt");
+          
+
+        }
+
+
+        private static void Test1Source(){
+        //var source = new Source("../../Sources/File1.txt");
             string lineMessage = String.Empty;
             char c = 'x';
 
@@ -33,7 +39,7 @@ namespace ConsoleApp
 
                 }
             }
-
+        
         }
     }
 }

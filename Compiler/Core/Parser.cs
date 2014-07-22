@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Compiler.Core;
 using Compiler.Messages;
 
 namespace Compiler
@@ -10,35 +11,53 @@ namespace Compiler
     public class Parser
     {
 
-        //ICode 
-        //SymTab
-        Scanner scanner = null;
-        LoggerEventHandler logger = new LoggerEventHandler();
+        protected ICode iCode;
+        protected SymTab symTab;
+        protected Scanner scanner = null;
+        //protected LoggerEventHandler logger = new LoggerEventHandler();
+
+
+
+        #region Events
+
+        public event EventHandler<Message> MessageEvents;
+
+        protected void OnMessage(Message message)
+        {
+            if (MessageEvents != null)
+            {
+                MessageEvents(this, message);
+            }
+        }
+
+        #endregion
 
 
         public Parser(Scanner scanner)
         {
             this.scanner = scanner;
-            scanner.MessageEvents += logger.HandleMessage;
+            this.iCode = new Code();
+            this.symTab = new SymTab();
+           // scanner.MessageEvents += logger.HandleMessage;
         }
 
-        public void Parse()
+        public  virtual void Parse()
         {
 
         }
 
-        public int getErrorCount()
+        public virtual int  getErrorCount()
         {
             //returns number of tokens
             return 0;
         }
 
-        public Token currentToken()
+        public virtual Token currentToken()
         {
             return scanner.currentToken();
         }
 
-        public Token NextToken() {
+        public virtual Token NextToken() {
             return new Token();
         }
 
