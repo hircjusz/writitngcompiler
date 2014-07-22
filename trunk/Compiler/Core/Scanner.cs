@@ -10,45 +10,51 @@ namespace Compiler
     public class Scanner
     {
 
-        #region Events
-        
-        public event EventHandler<Messages.MessageType> MessageEvents;
+        #region
+         protected Source source = null;
 
-        protected void OnMessage(MessageType message) {
-
-            if (MessageEvents != null) {
-                MessageEvents(this, message);
-            }
-        
-        }
 
         #endregion
 
+         //#region Events
 
-        public Token currentToken() {
+        //public event EventHandler<MessageType> MessageEvents;
+
+        //protected void OnMessage(MessageType message) {
+        //    if (MessageEvents != null) {
+        //        MessageEvents(this, message);
+        //    }
+        //}
+
+        //#endregion
+
+        public Scanner(Source source) {
+            this.source = source;
+        
+        }
+
+
+        
+        public virtual Token currentToken() {
             var token = new Token();
-            OnMessage(new MessageType("Token"));
+            //OnMessage(new MessageType("Token"));
             return token;
         }
 
-        public Token nextToken() {
-
+        public virtual Token nextToken() {
             return new Token();
         }
 
-        protected Token extractToken() {
-
+        protected virtual Token extractToken() {
             return new Token();
         }
         
-        public char currentChar() {
-
-            return 'a';
+        public virtual char currentChar() {
+            return source.CurrentChar();
         }
 
-        public char nextChar() {
-
-            return 'b';
+        public virtual char nextChar() {
+            return 'a';
         }
 
 

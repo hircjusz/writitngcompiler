@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compiler
+namespace Backend
 {
-    public class EofToken :Token
+    public  class Compiler
     {
-
-        public EofToken(Source source) : base(source) { 
-        
-        }
     }
 }

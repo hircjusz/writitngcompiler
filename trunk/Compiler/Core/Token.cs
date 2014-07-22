@@ -28,7 +28,8 @@ namespace Compiler
         public Token(Source source) {
 
             this.source = source;
-            
+            this.lineNum = source.LineNum;
+            this.position = source.CurrentPosition;
         }
 
         public Token() { }

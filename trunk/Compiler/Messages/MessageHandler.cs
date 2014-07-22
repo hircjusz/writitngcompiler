@@ -8,6 +8,6 @@ namespace Compiler.Messages
 {
     public abstract class MessageHandler
     {
-        public abstract void HandleMessage(object o, MessageType args );
+        public abstract void HandleMessage(object o, Message args );
     }
 }

@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Compiler
+namespace Compiler.Core
 {
-    public class EofToken :Token
+    public interface ICode
     {
-
-        public EofToken(Source source) : base(source) { 
-        
-        }
     }
 }
