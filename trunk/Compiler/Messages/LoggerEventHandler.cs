@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace Compiler.Messages
 {
-    public class LoggerEventHandler:MessageHandler
+    public class LoggerEventHandler : MessageHandler
     {
         public override void HandleMessage(object o, Message args)
         {
-            Console.WriteLine(args.text);
+            if (args.text == Convert.ToString(Source.EOL))
+            {
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.Write(args.text);
+            }
         }
     }
 }

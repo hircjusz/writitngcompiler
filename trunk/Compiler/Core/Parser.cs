@@ -10,13 +10,21 @@ namespace Compiler
 {
     public class Parser
     {
+        private ICode iCode;
 
-        protected ICode iCode;
-        protected SymTab symTab;
+        public  ICode Code
+        {
+            get { return iCode; }
+            set { iCode = value; }
+        }
+        private SymTab symTab;
+
+        public SymTab SymTab
+        {
+            get { return symTab; }
+            set { symTab = value; }
+        }
         protected Scanner scanner = null;
-        //protected LoggerEventHandler logger = new LoggerEventHandler();
-
-
 
         #region Events
 
@@ -38,7 +46,6 @@ namespace Compiler
             this.scanner = scanner;
             this.iCode = new Code();
             this.symTab = new SymTab();
-           // scanner.MessageEvents += logger.HandleMessage;
         }
 
         public  virtual void Parse()

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pascal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -48,9 +49,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Backend\Backend.csproj">
+      <Project>{6b06e7a4-ffd5-42ff-8b79-ec3c5f6000e4}</Project>
+      <Name>Backend</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Compiler\Compiler.csproj">
       <Project>{171f600b-f02c-40f3-a3be-6917f38fdf63}</Project>
       <Name>Compiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pascal\Pascal.csproj">
+      <Project>{354bdb4b-1297-4926-a33b-6e3708555eba}</Project>
+      <Name>Pascal</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
