@@ -36,8 +36,7 @@ namespace Compiler
 
         
         public virtual Token currentToken() {
-            var token = new Token();
-            //OnMessage(new MessageType("Token"));
+            var token = new Token(source);
             return token;
         }
 
