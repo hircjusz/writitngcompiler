@@ -1,4 +1,6 @@
-﻿{This is a comment.}
+﻿Two{comments in}{a row} here
+{This is a comment.}
+Two
  
 {This is a comment
  that spans several

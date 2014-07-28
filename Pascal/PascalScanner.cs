@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Compiler;
+using Pascal.Tokens;
 
 namespace Pascal
 {
@@ -19,14 +20,14 @@ namespace Pascal
         {
 
             SkipWhiteSpace();
-            char currentChar = base.currentChar();
+            char currentChar = base.peekChar();
             Token token = null;
             if(currentChar==Source.EOF){
 
 
             }
             else if (Char.IsLetter(currentChar)) {
-
+                token = new PascalWordToken(source);
             }
             else if (Char.IsDigit(currentChar)) {
 
@@ -47,7 +48,7 @@ namespace Pascal
         private void SkipWhiteSpace()
         {
 
-            char currentChar = base.currentChar();
+            char currentChar = base.peekChar();
             while(Char.IsWhiteSpace(currentChar)|| (currentChar=='{')){
                 if (currentChar == '{') {
                     do
