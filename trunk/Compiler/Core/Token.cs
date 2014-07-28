@@ -16,7 +16,13 @@ namespace Compiler
     public class Token
     {
         protected TokenType type;
-        protected string text;
+        private string text;
+
+        public  string Text
+        {
+            get { return text; }
+            set { text = value; }
+        }
         protected Object value;
         protected Source source;
 
@@ -30,6 +36,7 @@ namespace Compiler
             this.source = source;
             this.lineNum = source.LineNum;
             this.position = source.CurrentPosition;
+            this.text = Convert.ToString(source.PeekChar());
         }
 
         public Token() { }
@@ -41,14 +48,14 @@ namespace Compiler
         
         }
 
-        protected char CurrentChar() {
-            return source.CurrentChar();
-        }
+        //protected char CurrentChar() {
+        //    return source.CurrentChar();
+        //}
 
-        protected char peekChar() {
+        //protected char peekChar() {
 
-           return  source.PeekNextChar();
-        }
+        //   return  source.PeekNextChar();
+        //}
 
 
 

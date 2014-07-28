@@ -59,15 +59,15 @@ namespace Compiler
             return line[currentPos];
         }
 
-        public char PeekNextChar()
+        public char PeekChar()
         {
+            if (line == null) return EOF;
 
-            var nextCharPos = currentPos + 1;
-            if (line.Length - 1 < nextCharPos)
+            if (line.Length - 1 < currentPos || currentPos==-1)
             {
                 return EOL;
             }
-            return line[nextCharPos];
+            return line[currentPos];
         }
 
         public String GetCurrentText()
