@@ -21,6 +21,11 @@ namespace Pascal.Tokens
                 builder.Append(ch);
                 ch = CurrentChar();
 
+                //if (ch == '\'') { 
+                //while
+                //}
+
+
             } while (ch != '\'' && ch != Source.EOF);
             builder.Append(ch);
             CurrentChar();
