@@ -18,26 +18,29 @@ namespace Pascal
 
         public override Token extractToken()
         {
-
             SkipWhiteSpace();
             char currentChar = base.peekChar();
             Token token = null;
             if(currentChar==Source.EOF){
 
-
+                
             }
             else if (Char.IsLetter(currentChar)) {
                 token = new PascalWordToken(source);
             }
             else if (Char.IsDigit(currentChar)) {
-
+              token=  new PascalSpecialToken(source);
             }
             else if (currentChar == '\'')
             {
-                token = new PascalStringToken(source);
+                token = new PascalNumberToken(source);
             }
-            else { 
-            
+            else if (PascalTokenType.RESERVED_SYMBOLS.Contains(currentChar))
+            {
+                token = new PascalSpecialToken(source);
+            }
+            else {
+                token = new PascalErrorToken(source);
             }
 
 
