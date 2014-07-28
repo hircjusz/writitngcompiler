@@ -17,10 +17,31 @@ namespace Pascal.Tokens
             StringBuilder builder = new StringBuilder();
             char ch=PeekChar();
             text+=ch;
-            switch (ch) { 
+            bool move = false;
+            switch (ch) {
                 case '+':
-                    CurrentChar();
+                    move = true;
                     break;
+                case ':':
+                case '<':
+                case '>':
+                case '.':
+                    {
+                    ch = CurrentChar();
+                    if (ch == '=')
+                    {
+                        text += ch;
+                        move = true;
+                    }
+                    break;
+                
+                }
+
+            }
+
+            if (move)
+            {
+                CurrentChar();
             }
         }
     }
