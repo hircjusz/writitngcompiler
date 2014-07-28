@@ -9,7 +9,7 @@ namespace Pascal.Tokens
 {
     public  class PascalTokenType:TokenType
     {
-        public static HashSet<char> RESERVED_SYMBOLS = new HashSet<char>() {'+' };
+        public static HashSet<char> RESERVED_SYMBOLS = new HashSet<char>() {'+','=',':','<','>','.' };
 
 
 

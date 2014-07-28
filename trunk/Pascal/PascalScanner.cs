@@ -21,25 +21,27 @@ namespace Pascal
             SkipWhiteSpace();
             char currentChar = base.peekChar();
             Token token = null;
-            if(currentChar==Source.EOF){
-
-                
+            if (currentChar == Source.EOF)
+            {
             }
-            else if (Char.IsLetter(currentChar)) {
+            else if (Char.IsLetter(currentChar))
+            {
                 token = new PascalWordToken(source);
             }
-            else if (Char.IsDigit(currentChar)) {
-              token=  new PascalSpecialToken(source);
+            else if (Char.IsDigit(currentChar))
+            {
+                token = new PascalNumberToken(source);
             }
             else if (currentChar == '\'')
             {
-                token = new PascalNumberToken(source);
+                token = new PascalStringToken(source);
             }
             else if (PascalTokenType.RESERVED_SYMBOLS.Contains(currentChar))
             {
                 token = new PascalSpecialToken(source);
             }
-            else {
+            else
+            {
                 token = new PascalErrorToken(source);
             }
 
@@ -52,21 +54,26 @@ namespace Pascal
         {
 
             char currentChar = base.peekChar();
-            while(Char.IsWhiteSpace(currentChar)|| (currentChar=='{')){
-                if (currentChar == '{') {
+            while (Char.IsWhiteSpace(currentChar) || (currentChar == '{'))
+            {
+                if (currentChar == '{')
+                {
                     do
                     {
                         currentChar = base.currentChar();
                     } while (currentChar != '}' && currentChar != Source.EOF);
-                
-                if(currentChar=='}'){
 
-                    currentChar = base.currentChar();
-                }}else
+                    if (currentChar == '}')
+                    {
+
+                        currentChar = base.currentChar();
+                    }
+                }
+                else
                 {
                     currentChar = base.currentChar();
                 }
-            
+
             }
 
 
