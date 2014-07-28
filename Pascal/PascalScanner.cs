@@ -14,20 +14,74 @@ namespace Pascal
             : base(source)
         {
         }
+
         public override Token extractToken()
         {
-            char currentChar = source.CurrentChar();
+
+            SkipWhiteSpace();
+            char currentChar = base.currentChar();
             Token token = null;
-            if (currentChar == Source.EOF)
-            {
-                token = new EofToken(source);
+            if(currentChar==Source.EOF){
+
+
             }
-            else
-            {
-                token = new Token(source);
+            else if (Char.IsLetter(currentChar)) {
+
             }
+            else if (Char.IsDigit(currentChar)) {
+
+            }
+            else if (currentChar == '\'')
+            {
+
+            }
+            else { 
+            
+            }
+
+
             return token;
         }
-       
+
+
+        private void SkipWhiteSpace()
+        {
+
+            char currentChar = base.currentChar();
+            while(Char.IsWhiteSpace(currentChar)|| (currentChar=='{')){
+                if (currentChar == '{') {
+                    do
+                    {
+                        currentChar = base.currentChar();
+                    } while (currentChar != '}' && currentChar != Source.EOF);
+                
+                if(currentChar=='}'){
+
+                    currentChar = base.currentChar();
+                }}else
+                {
+                    currentChar = base.currentChar();
+                }
+            
+            }
+
+
+        }
+
+        //public override Token extractToken()
+        //{
+        //    char currentChar = source.CurrentChar();
+        //    Token token = null;
+        //    if (currentChar == Source.EOF)
+        //    {
+        //        token = new EofToken(source);
+        //    }
+        //    else
+        //    {
+        //        token = new Token(source);
+        //    }
+        //    return token;
+        //}
+
     }
 }

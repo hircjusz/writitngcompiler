@@ -39,10 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Listeners\PascalMessageListener.cs" />
     <Compile Include="PascalParserTD.cs" />
     <Compile Include="PascalScanner.cs" />
     <Compile Include="PascalToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tokens\PascalErrorToken.cs" />
+    <Compile Include="Tokens\PascalNumberToken.cs" />
+    <Compile Include="Tokens\PascalSpecialToken.cs" />
     <Compile Include="Tokens\PascalStringToken.cs" />
     <Compile Include="Tokens\PascalWordToken.cs" />
   </ItemGroup>

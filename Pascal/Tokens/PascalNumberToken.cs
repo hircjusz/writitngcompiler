@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Compiler;
 
-namespace Pascal
+namespace Pascal.Tokens
 {
-    public class PascalToken : Token
+    public class PascalNumberToken:PascalToken
     {
 
     }
