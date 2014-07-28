@@ -9,6 +9,10 @@ namespace Pascal.Tokens
 {
     public  class PascalTokenType:TokenType
     {
-        private HashSet<String> set = new HashSet<String>();
+        public static HashSet<char> RESERVED_SYMBOLS = new HashSet<char>() {'+' };
+
+
+
+        
     }
 }
