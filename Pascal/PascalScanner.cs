@@ -14,8 +14,7 @@ namespace Pascal
             : base(source)
         {
         }
-
-        protected override Token extractToken()
+        public override Token extractToken()
         {
             char currentChar = source.CurrentChar();
             Token token = null;
@@ -23,10 +22,12 @@ namespace Pascal
             {
                 token = new EofToken(source);
             }
-            else {
+            else
+            {
                 token = new Token(source);
             }
             return token;
         }
+       
     }
 }

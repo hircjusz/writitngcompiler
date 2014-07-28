@@ -7,11 +7,11 @@ using Compiler.Core;
 
 namespace Backend
 {
-    //public  class Compiler:IBackend
-    //{
-    //    public void Process(ICode code, SymTab symtab)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
+    public class Compiler : IBackend
+    {
+        public void Process(ICode code, SymTab symtab)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

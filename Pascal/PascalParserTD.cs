@@ -16,9 +16,13 @@ namespace Pascal
 
         public override void Parse()
         {
+
+            
+
             Token token;
-            while(!((token=currentToken()) is EofToken )){
-            //OnMessage(new Message(token.));
+            while(!((token=scanner.extractToken()) is EofToken )){
+            
+                OnMessage(new Message(token.Text));
             
             }
 

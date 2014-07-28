@@ -44,7 +44,7 @@ namespace Compiler
             return new Token();
         }
 
-        protected virtual Token extractToken() {
+        public virtual Token extractToken() {
             return new Token();
         }
         
