@@ -1,4 +1,6 @@
-﻿Two{comments in}{a row} here
+﻿'' '' 
+'Hello, world.'
+Two{comments in}{a row} here
 {This is a comment.}
 Two
  

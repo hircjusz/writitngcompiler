@@ -48,6 +48,7 @@
     <Compile Include="Tokens\PascalNumberToken.cs" />
     <Compile Include="Tokens\PascalSpecialToken.cs" />
     <Compile Include="Tokens\PascalStringToken.cs" />
+    <Compile Include="Tokens\PascalTokenType.cs" />
     <Compile Include="Tokens\PascalWordToken.cs" />
   </ItemGroup>
   <ItemGroup>

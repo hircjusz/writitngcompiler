@@ -51,6 +51,7 @@
     <Compile Include="Core\Scanner.cs" />
     <Compile Include="Core\Source.cs" />
     <Compile Include="Core\Token.cs" />
+    <Compile Include="TokenType.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

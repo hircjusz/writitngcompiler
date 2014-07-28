@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Compiler
 {
-    public enum TokenType { 
+    //public enum TokenType { 
     
-    EofToken
+    //EofToken
     
-    }
+    //}
 
 
     public class Token
