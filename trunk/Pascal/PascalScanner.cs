@@ -34,7 +34,7 @@ namespace Pascal
             }
             else if (currentChar == '\'')
             {
-
+                token = new PascalStringToken(source);
             }
             else { 
             
