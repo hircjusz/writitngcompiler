@@ -25,8 +25,10 @@ namespace ConsoleApp
         {
             source = new Source(filepath);
             parser = FrontenedFactory.CreateParser("Pascal", "top-down", source);
-            var logger = new LoggerEventHandler();
-            parser.MessageEvents += logger.HandleMessage;
+            //var logger = new LoggerEventHandler();
+            //parser.MessageEvents += logger.HandleMessage;
+            var tokenEventHandler = new TokenEventHandler();
+            parser.MessageEvents += tokenEventHandler.HandleMessage;
 
             backend = BackendFactory.Createbackend(operation);
 

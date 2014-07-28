@@ -12,7 +12,7 @@ namespace Compiler.Messages
         PARSER_SUMMARY, INTERPRETER_SUMMARY, COMPILER_SUMMARY,
         MISCELLANEOUS, TOKEN,
         ASSIGN, FETCH, BREAKPOINT, RUNTIME_ERROR,
-        CALL, RETURN,
+        CALL, RETURN,TEXT
     }
 
 
@@ -28,8 +28,15 @@ namespace Compiler.Messages
             this.text = text;
         }
 
-        public Message(MessageType type, Object obj)
+        public Message(MessageType type, Object obj=null)
         {
+            this.messageType = type;
+            this.obj = obj;
+
+        }
+        public Message(string text,MessageType type, Object obj=null)
+        {
+            this.text = text;
             this.messageType = type;
             this.obj = obj;
 

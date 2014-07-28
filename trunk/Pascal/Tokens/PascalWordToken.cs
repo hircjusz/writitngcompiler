@@ -7,23 +7,26 @@ using Compiler;
 
 namespace Pascal.Tokens
 {
-    public class PascalWordToken:PascalToken
+    public class PascalWordToken : PascalToken
     {
 
         public PascalWordToken(Source source) : base(source) { }
 
+        protected int TokenType;
+
         protected override void Extract()
         {
             StringBuilder builder = new StringBuilder();
-            char ch=PeekChar();
-            //builder.Append(ch);
-            while (Char.IsLetterOrDigit(ch)) {
+            char ch = PeekChar();
+            while (Char.IsLetterOrDigit(ch))
+            {
                 builder.Append(ch);
-               ch= CurrentChar();
+                ch = CurrentChar();
             }
             this.text = builder.ToString();
-
-
+            TokenType = PascalTokenType.RESERVED_WORDS.Contains(text.ToUpper()) ?
+            TokenType = PascalTokenType.RESERVED_WORD :
+            TokenType = PascalTokenType.IDENTIFIER;
         }
     }
 }
