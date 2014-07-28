@@ -52,6 +52,11 @@ namespace Compiler
             return source.CurrentChar();
         }
 
+        public virtual char peekChar()
+        {
+            return source.PeekChar();
+        }
+
         public virtual char nextChar() {
             return 'a';
         }

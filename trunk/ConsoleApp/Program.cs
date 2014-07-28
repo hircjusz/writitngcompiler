@@ -12,7 +12,8 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             string operation = "compile";
-            var pascal = new Pascal(operation, "../../Sources/File1.txt", "F1");
+           // var pascal = new Pascal(operation, "../../Sources/File1.txt", "F1");
+            var pascal = new Pascal(operation, "../../Sources/scannertest.txt", "F1");
         }
 
 

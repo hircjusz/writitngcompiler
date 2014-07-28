@@ -9,6 +9,7 @@ namespace Pascal
 {
     public class PascalToken : Token
     {
-
+        public PascalToken() { }
+        public PascalToken(Source source) : base(source) { }
     }
 }

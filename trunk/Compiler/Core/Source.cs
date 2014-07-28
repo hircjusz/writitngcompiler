@@ -49,7 +49,7 @@ namespace Compiler
         {
             if (line == null) return EOF;
 
-            currentPos++;
+            currentPos+=1;
             if (line.Length - 1 < currentPos)
             {
                 currentPos = -1;
@@ -63,10 +63,11 @@ namespace Compiler
         {
             if (line == null) return EOF;
 
-            if (line.Length - 1 < currentPos || currentPos==-1)
+            if (line.Length - 1 < currentPos )
             {
                 return EOL;
             }
+            if (currentPos == -1) return CurrentChar();
             return line[currentPos];
         }
 

@@ -9,6 +9,6 @@ namespace Pascal.Tokens
     public class PascalErrorToken:PascalToken
     {
 
-
+         
     }
 }

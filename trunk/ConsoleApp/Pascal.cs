@@ -35,7 +35,7 @@ namespace ConsoleApp
 
             iCode = parser.Code;
             symTab = parser.SymTab;
-            backend.Process(iCode, symTab);
+            //backend.Process(iCode, symTab);
         
         }
 
