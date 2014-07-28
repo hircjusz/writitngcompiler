@@ -22,8 +22,8 @@ namespace Pascal
             Token token;
             while(!((token=scanner.extractToken()) is EofToken )){
             
-                OnMessage(new Message(token.Text));
-            
+              //  OnMessage(new Message(token.Text,MessageType.TEXT));
+                OnMessage(new Message(token.Text,MessageType.TOKEN,token));
             }
 
 

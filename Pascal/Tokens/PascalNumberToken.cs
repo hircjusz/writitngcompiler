@@ -55,13 +55,14 @@ namespace Pascal.Tokens
                         ch = CurrentChar();
                     }
                 }
-                else if (Char.IsDigit(ch)) {
+                else if (Char.IsDigit(ch))
+                {
                     while (Char.IsDigit(ch))
                     {
                         textBuffer.Append(ch);
                         ch = CurrentChar();
                     }
-                
+
                 }
             }
 

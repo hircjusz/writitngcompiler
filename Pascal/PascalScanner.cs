@@ -23,6 +23,11 @@ namespace Pascal
             Token token = null;
             if (currentChar == Source.EOF)
             {
+                token = new EofToken(source);
+            }
+            else if (currentChar == Source.EOL)
+            {
+                token = new EolToken(source);
             }
             else if (Char.IsLetter(currentChar))
             {
@@ -36,7 +41,7 @@ namespace Pascal
             {
                 token = new PascalStringToken(source);
             }
-            else if (PascalTokenType.RESERVED_SYMBOLS.Contains(currentChar))
+            else if (PascalSpecialToken.RESERVED_SYMBOLS.Contains(currentChar))
             {
                 token = new PascalSpecialToken(source);
             }
@@ -44,8 +49,6 @@ namespace Pascal
             {
                 token = new PascalErrorToken(source);
             }
-
-
             return token;
         }
 

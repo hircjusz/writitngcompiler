@@ -9,7 +9,11 @@ namespace Pascal.Tokens
 {
     public  class PascalTokenType:TokenType
     {
-        public static HashSet<char> RESERVED_SYMBOLS = new HashSet<char>() {'+','=',':','<','>','.' };
+        public static HashSet<string> RESERVED_WORDS = new HashSet<string>() {"BEGIN" };
+
+        private static int counter=16;
+        public static int IDENTIFIER = counter+1;
+        public static int RESERVED_WORD = counter + 2;
 
 
 

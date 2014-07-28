@@ -63,6 +63,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sources\scannertoken.txt" />
     <Content Include="Sources\File1.txt" />
     <Content Include="Sources\scannertest.txt" />
   </ItemGroup>
