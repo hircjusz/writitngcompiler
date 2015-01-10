@@ -12,7 +12,7 @@ namespace Pascal.Tokens
 
         public PascalWordToken(Source source) : base(source) { }
 
-        protected int TokenType;
+        //  protected int TokenType;
 
         protected override void Extract()
         {
@@ -24,9 +24,15 @@ namespace Pascal.Tokens
                 ch = CurrentChar();
             }
             this.text = builder.ToString();
-            TokenType = PascalTokenType.RESERVED_WORDS.Contains(text.ToUpper()) ?
-            TokenType = PascalTokenType.RESERVED_WORD :
-            TokenType = PascalTokenType.IDENTIFIER;
+            if (PascalTokenType.RESERVED_WORDS.Contains(text.ToUpper()))
+            {
+                this.Type = new IdentifierToken();
+            }
+            else
+            {
+                this.Type = new ReservedWordToken();
+            }
+
         }
     }
 }

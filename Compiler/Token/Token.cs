@@ -15,7 +15,13 @@ namespace Compiler
 
     public class Token
     {
-        protected TokenType type;
+        private TokenType type;
+
+        public TokenType Type
+        {
+            get { return type; }
+            set { type = value; }
+        }
         protected string text;
 
         public  string Text
@@ -23,7 +29,13 @@ namespace Compiler
             get { return text; }
             set { text = value; }
         }
-        protected Object value;
+        private Object value;
+
+        public Object Value
+        {
+            get { return this.value; }
+            set { this.value = value; }
+        }
         protected Source source;
 
         protected int lineNum;
@@ -36,6 +48,7 @@ namespace Compiler
             this.source = source;
             this.lineNum = source.LineNum;
             this.position = source.CurrentPosition;
+            this.Type = new TokenType();
             //this.text = Convert.ToString(source.PeekChar());
             Extract();
         }

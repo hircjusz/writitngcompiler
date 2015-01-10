@@ -10,11 +10,7 @@ namespace Compiler
     public class Scanner
     {
 
-        #region
          protected Source source = null;
-
-
-        #endregion
 
          //#region Events
 

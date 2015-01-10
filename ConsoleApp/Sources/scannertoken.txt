@@ -1,4 +1,6 @@
-﻿a990
+﻿
+
+a990
 
 3141592600000000000000000000000e-30
 
@@ -9,3 +11,7 @@
 Two{comments in}{a row} here
 {This is a comment.}
 Two
+
+BEGIN
+ AND
+ ARRAY

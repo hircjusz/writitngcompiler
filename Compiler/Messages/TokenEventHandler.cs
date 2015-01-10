@@ -19,7 +19,8 @@ namespace Compiler.Messages
                 Console.WriteLine();
             
             }
-            Console.Write(token.GetType().Name);
+            Console.WriteLine(string.Format("{0}  {1} {2}", token.Type.GetTokenName(),token.Text,token.Value));
+            
             Console.Write(" ");
         }
 

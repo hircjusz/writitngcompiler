@@ -12,13 +12,15 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             string operation = "compile";
-           // var pascal = new Pascal(operation, "../../Sources/File1.txt", "F1");
+            // var pascal = new Pascal(operation, "../../Sources/File1.txt", "F1");
             var pascal = new Pascal(operation, "../../Sources/scannertoken.txt", "F1");
+            Console.ReadKey();
         }
 
 
-        private static void Test1Source(){
-        //var source = new Source("../../Sources/File1.txt");
+        private static void Test1Source()
+        {
+            //var source = new Source("../../Sources/File1.txt");
             string lineMessage = String.Empty;
             char c = 'x';
 
@@ -39,7 +41,7 @@ namespace ConsoleApp
 
                 }
             }
-        
+
         }
     }
 }
