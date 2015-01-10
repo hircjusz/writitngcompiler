@@ -9,5 +9,9 @@ namespace Compiler
     public class TokenType
     {
 
+        public virtual string GetTokenName()
+        {
+            return "Undefined";
+        }
     }
 }
