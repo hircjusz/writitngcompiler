@@ -45,7 +45,7 @@ namespace Compiler
             }
         }
 
-        public char CurrentChar()
+        public char NextChar()
         {
             if (line == null) return EOF;
 
@@ -59,7 +59,7 @@ namespace Compiler
             return line[currentPos];
         }
 
-        public char PeekChar()
+        public char PeekCurrentChar()
         {
             if (line == null) return EOF;
 
@@ -67,8 +67,21 @@ namespace Compiler
             {
                 return EOL;
             }
-            if (currentPos == -1) return CurrentChar();
+            if (currentPos == -1) return NextChar();
             return line[currentPos];
+        }
+
+        public char PeekNextChar()
+        {
+            if (line == null) return EOF;
+            var seeNextCharPos = currentPos + 1;
+
+            if (line.Length - 1 < seeNextCharPos)
+            {
+                return EOL;
+            }
+            if (currentPos == -1) return NextChar();
+            return line[seeNextCharPos];
         }
 
         public String GetCurrentText()

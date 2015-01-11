@@ -16,7 +16,7 @@ namespace Pascal.Tokens
         protected override void Extract()
         {
             StringBuilder builder = new StringBuilder();
-            char ch=PeekChar();
+            char ch=PeekCurrentChar();
             text+=ch;
             bool move = false;
             switch (ch) {
@@ -28,7 +28,7 @@ namespace Pascal.Tokens
                 case '>':
                 case '.':
                     {
-                    ch = CurrentChar();
+                    ch = NextChar();
                     if (ch == '=')
                     {
                         text += ch;
@@ -41,7 +41,7 @@ namespace Pascal.Tokens
 
             if (move)
             {
-                CurrentChar();
+                NextChar();
             }
         }
     }

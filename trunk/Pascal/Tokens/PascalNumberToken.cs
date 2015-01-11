@@ -19,22 +19,22 @@ namespace Pascal.Tokens
         {
             StringBuilder textBuffer = new StringBuilder();
 
-            char ch = PeekChar();
+            char ch = PeekCurrentChar();
             while (Char.IsDigit(ch))
             {
                 textBuffer.Append(ch);
-                ch = CurrentChar();
+                ch = NextChar();
             }
 
             if (ch == '.')
             {
                 IsDouble = true;
                 textBuffer.Append(',');
-                ch = CurrentChar();
+                ch = NextChar();
                 while (Char.IsDigit(ch))
                 {
                     textBuffer.Append(ch);
-                    ch = CurrentChar();
+                    ch = NextChar();
                 }
 
             }
@@ -43,16 +43,16 @@ namespace Pascal.Tokens
             {
                 IsDouble = true;
                 textBuffer.Append(ch);
-                ch = CurrentChar();
+                ch = NextChar();
                 if (ch == '+' || ch == '-')
                 {
                     textBuffer.Append(ch);
 
-                    ch = CurrentChar();
+                    ch = NextChar();
                     while (Char.IsDigit(ch))
                     {
                         textBuffer.Append(ch);
-                        ch = CurrentChar();
+                        ch = NextChar();
                     }
                 }
                 else if (Char.IsDigit(ch))
@@ -60,7 +60,7 @@ namespace Pascal.Tokens
                     while (Char.IsDigit(ch))
                     {
                         textBuffer.Append(ch);
-                        ch = CurrentChar();
+                        ch = NextChar();
                     }
 
                 }

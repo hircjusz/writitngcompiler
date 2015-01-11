@@ -7,7 +7,7 @@ using Compiler;
 
 namespace Pascal.Tokens
 {
-    public class PascalStringToken:PascalToken
+    public class PascalStringToken : PascalToken
     {
 
         public PascalStringToken(Source source) : base(source) { }
@@ -15,20 +15,26 @@ namespace Pascal.Tokens
         protected override void Extract()
         {
             StringBuilder builder = new StringBuilder();
-            char ch=PeekChar();
+            char ch = PeekCurrentChar();
             do
             {
                 builder.Append(ch);
-                ch = CurrentChar();
+                ch = NextChar();
 
-                //if (ch == '\'') { 
-                //while
-                //}
+                if (ch == '\'')
+                {
+                    while (ch == '\'' && PeekNextChar() == '\'')
+                    {
+                        builder.Append("''");
+                        
+                    }
+
+                }
 
 
             } while (ch != '\'' && ch != Source.EOF);
             builder.Append(ch);
-            CurrentChar();
+            NextChar();
             this.text = builder.ToString();
 
         }

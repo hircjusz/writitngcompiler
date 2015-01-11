@@ -17,11 +17,11 @@ namespace Pascal.Tokens
         protected override void Extract()
         {
             StringBuilder builder = new StringBuilder();
-            char ch = PeekChar();
+            char ch = PeekCurrentChar();
             while (Char.IsLetterOrDigit(ch))
             {
                 builder.Append(ch);
-                ch = CurrentChar();
+                ch = NextChar();
             }
             this.text = builder.ToString();
             if (PascalTokenType.RESERVED_WORDS.Contains(text.ToUpper()))

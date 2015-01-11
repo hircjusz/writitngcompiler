@@ -16,7 +16,7 @@ namespace CompilerTest
             string lineMessage = String.Empty ;
             char c='x';
 
-            while ((c = source.CurrentChar()) != Source.EOF) {
+            while ((c = source.NextChar()) != Source.EOF) {
 
                 if (c == Source.EOL)
                 {
