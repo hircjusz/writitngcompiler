@@ -45,12 +45,12 @@ namespace Compiler
         }
         
         public virtual char currentChar() {
-            return source.CurrentChar();
+            return source.NextChar();
         }
 
         public virtual char peekChar()
         {
-            return source.PeekChar();
+            return source.PeekCurrentChar();
         }
 
         public virtual char nextChar() {

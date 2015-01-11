@@ -62,15 +62,19 @@ namespace Compiler
         
         }
 
-        protected char CurrentChar()
+        protected char NextChar()
         {
-            return source.CurrentChar();
+            return source.NextChar();
         }
 
-        protected char PeekChar()
+        protected char PeekCurrentChar()
         {
+            return source.PeekCurrentChar();
+        }
 
-            return source.PeekChar();
+        protected char PeekNextChar()
+        {
+            return source.PeekNextChar();
         }
 
 
