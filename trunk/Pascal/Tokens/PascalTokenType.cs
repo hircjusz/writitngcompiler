@@ -28,6 +28,22 @@ namespace Pascal.Tokens
         }
     }
 
+    public class StringToken : TokenType
+    {
+        public override string GetTokenName()
+        {
+            return "String";
+        }
+    }
+
+    public class ErrorToken : TokenType
+    {
+        public override string GetTokenName()
+        {
+            return "Error";
+        }
+    }
+
     public class IdentifierToken :TokenType
     {
         public override string GetTokenName()
