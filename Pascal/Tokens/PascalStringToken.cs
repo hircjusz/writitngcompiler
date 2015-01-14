@@ -30,9 +30,21 @@ namespace Pascal.Tokens
                         ch = NextChar();
                     }
                 }
-            } while (ch != '\'' && ch != Source.EOF);
-            builder.Append(ch);
-            NextChar();
+            } while (ch != '\'' && ch != Source.EOF && ch!=Source.EOL);
+
+            if (ch == '\'')
+            {
+                builder.Append(ch);
+                NextChar();
+                Type = new StringToken();
+                this.Value = builder.ToString();
+            }
+            else
+            {
+                this.Type = new ErrorToken();
+                this.Value = null;
+            }
+
             this.text = builder.ToString();
         }
     }
