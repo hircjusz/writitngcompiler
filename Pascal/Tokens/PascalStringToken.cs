@@ -26,17 +26,14 @@ namespace Pascal.Tokens
                     while (ch == '\'' && PeekNextChar() == '\'')
                     {
                         builder.Append("''");
-                        
+                        ch = NextChar();
+                        ch = NextChar();
                     }
-
                 }
-
-
             } while (ch != '\'' && ch != Source.EOF);
             builder.Append(ch);
             NextChar();
             this.text = builder.ToString();
-
         }
     }
 }
