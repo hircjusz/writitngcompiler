@@ -14,7 +14,8 @@ namespace ConsoleApp
             string operation = "compile";
             // var pascal = new Pascal(operation, "../../Sources/File1.txt", "F1");
            // var pascal = new Pascal(operation, "../../Sources/scannertoken.txt", "F1");
-            var pascal = new Pascal(operation, "../../Sources/stringscanner.txt", "F1");
+            //var pascal = new Pascal(operation, "../../Sources/stringscanner.txt", "F1");
+            var pascal = new Pascal(operation, "../../Sources/specialtoken.txt", "F1");
             Console.ReadKey();
         }
 
