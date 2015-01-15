@@ -7,42 +7,104 @@ using Compiler;
 
 namespace Pascal.Tokens
 {
-    public  class PascalSpecialToken:PascalToken
+    public class PascalSpecialToken : PascalToken
     {
         public PascalSpecialToken(Source source) : base(source) { }
 
-        public static HashSet<char> RESERVED_SYMBOLS = new HashSet<char>() { '+', '=', ':', '<', '>', '.' };
+        public static HashSet<char> RESERVED_SYMBOLS = new HashSet<char>() { '+', '-', '*', '/', '=', ':', '<', '>', '.' };
 
         protected override void Extract()
         {
             StringBuilder builder = new StringBuilder();
-            char ch=PeekCurrentChar();
-            text+=ch;
+            char currentChar = PeekCurrentChar();
+            text += currentChar;
             bool move = false;
-            switch (ch) {
+            switch (currentChar)
+            {
+                case '^':
+                case '}':
+                case '{':
+                case ']':
+                case '[':
+                case ')':
+                case '(':
+                case '=':
+                case '\\':
+                case ';':
+                case ',':
+                case '/':
+                case '*':
+                case '-':
                 case '+':
-                    move = true;
+                    builder.Append(currentChar);
+                    NextChar();
                     break;
                 case ':':
-                case '<':
-                case '>':
-                case '.':
+                    currentChar = NextChar();
+                    if (currentChar == '=')
                     {
-                    ch = NextChar();
-                    if (ch == '=')
-                    {
-                        text += ch;
-                        move = true;
+                        builder.Append('=');
+                        NextChar();
+
                     }
                     break;
-                }
+                case '<':
+                    builder.Append(currentChar);
+                    currentChar = NextChar();
+                    if (currentChar == '=' || currentChar == '>')
+                    {
+                        builder.Append(currentChar);
+                        NextChar();
+
+                    }
+                    break;
+                case '>':
+                    builder.Append(currentChar);
+                    currentChar = NextChar();
+                    if (currentChar == '=')
+                    {
+
+                        builder.Append(currentChar);
+                        NextChar();
+
+                    }
+                    break;
+                case '.':
+
+                    builder.Append(currentChar);
+                    currentChar = NextChar();
+                    if (currentChar == '.')
+                    {
+                        builder.Append(currentChar);
+                        NextChar();
+                    }
+                    break;
+
+                default:
+                    {
+                        Type = new ErrorToken();
+                        Value = null;
+
+
+                    }
+                    break;
 
             }
-
-            if (move)
+            if (Type.GetType() == typeof(SpecialToken))
             {
-                NextChar();
+                this.Type = new SpecialToken();
+
             }
+
+
+            //builder.Append(currentChar);
+            this.Value = builder.ToString();
+            this.Text = builder.ToString();
+
+            //if (move)
+            //{
+            //    NextChar();
+            //}
         }
     }
 }

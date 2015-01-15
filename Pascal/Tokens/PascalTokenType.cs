@@ -28,6 +28,14 @@ namespace Pascal.Tokens
         }
     }
 
+    public class SpecialToken : TokenType
+    {
+        public override string GetTokenName()
+        {
+            return "Special";
+        }
+    }
+
     public class StringToken : TokenType
     {
         public override string GetTokenName()
