@@ -36,7 +36,7 @@ namespace ConsoleApp
                         Console.WriteLine(c);
                         lineMessage = String.Empty;
                     }
-                    else
+                    else  
                     {
                         lineMessage += c;
                     }
