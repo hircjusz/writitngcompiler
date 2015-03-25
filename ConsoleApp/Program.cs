@@ -20,7 +20,7 @@ namespace ConsoleApp
         }
 
 
-        private static void Test1Source()
+        private static void Test1Source()   
         {
             //var source = new Source("../../Sources/File1.txt");
             string lineMessage = String.Empty;
