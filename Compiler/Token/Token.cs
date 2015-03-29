@@ -36,9 +36,15 @@ namespace Compiler
             get { return this.value; }
             set { this.value = value; }
         }
+
+        public int LineNum
+        {
+            get { return lineNum; }
+        }
+
         protected Source source;
 
-        protected int lineNum;
+        private int lineNum;
         protected int position;
 
 

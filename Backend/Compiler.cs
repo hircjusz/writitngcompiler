@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Compiler.Core;
+using Intermediate.Symbols;
 
 namespace Backend
 {
     public class Compiler : IBackend
     {
-        public void Process(ICode code, SymTab symtab)
+        public void Process(ICode code, ISymTab symtab)
         {
             throw new NotImplementedException();
         }

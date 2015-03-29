@@ -43,7 +43,6 @@
     <Compile Include="Messages\TokenEventHandler.cs" />
     <Compile Include="Token\EofToken.cs" />
     <Compile Include="Core\ICode.cs" />
-    <Compile Include="Core\SymTab.cs" />
     <Compile Include="Messages\LoggerEventHandler.cs" />
     <Compile Include="Messages\MessageHandler.cs" />
     <Compile Include="Messages\MessageType.cs" />

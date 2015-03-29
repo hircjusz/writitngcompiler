@@ -11,7 +11,7 @@ namespace Pascal.Tokens
     {
         public PascalSpecialToken(Source source) : base(source) { }
 
-        public static HashSet<char> RESERVED_SYMBOLS = new HashSet<char>() { '+', '-', '*', '/', '=', ':', '<', '>', '.' };
+        public static HashSet<char> RESERVED_SYMBOLS = new HashSet<char>() { ')', '(', ';', '+', '-', '*', '/', '=', ':', '<', '>', '.' };
 
         protected override void Extract()
         {

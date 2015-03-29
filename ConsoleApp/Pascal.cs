@@ -8,6 +8,7 @@ using Compiler.Core;
 using Backend;
 using Compiler.Factory;
 using Compiler.Messages;
+using Intermediate.Symbols;
 
 namespace ConsoleApp
 {
@@ -17,7 +18,7 @@ namespace ConsoleApp
         private Parser parser;
         private Source source;
         private ICode iCode;
-        private SymTab symTab;
+        private ISymTab symTab;
         private IBackend backend;
 
 

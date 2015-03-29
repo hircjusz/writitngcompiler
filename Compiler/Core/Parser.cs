@@ -5,24 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using Compiler.Core;
 using Compiler.Messages;
+using Intermediate.Symbols;
 
 namespace Compiler
 {
     public class Parser
     {
-        private ICode iCode;
+        protected ICode iCode;
 
         public  ICode Code
         {
             get { return iCode; }
             set { iCode = value; }
         }
-        private SymTab symTab;
+        protected ISymTab symTab;
 
-        public SymTab SymTab
+        public ISymTab SymTab
         {
             get { return symTab; }
             set { symTab = value; }
+        }
+
+        protected ISymTabStack symTabStack;
+
+        public ISymTabStack SymTabStack
+        {
+            get { return symTabStack; }
         }
         protected Scanner scanner = null;
 
@@ -45,7 +53,8 @@ namespace Compiler
         {
             this.scanner = scanner;
             this.iCode = new Code();
-            this.symTab = new SymTab();
+            this.symTab = null;
+            this.symTabStack = SymTabFactory.CreateSymTabStack(0);
         }
 
         public  virtual void Parse()

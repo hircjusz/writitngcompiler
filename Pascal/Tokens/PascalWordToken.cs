@@ -26,11 +26,12 @@ namespace Pascal.Tokens
             this.text = builder.ToString();
             if (PascalTokenType.RESERVED_WORDS.Contains(text.ToUpper()))
             {
-                this.Type = new IdentifierToken();
+                this.Type = new ReservedWordToken();
+
             }
             else
             {
-                this.Type = new ReservedWordToken();
+                this.Type = new IdentifierToken();
             }
 
         }

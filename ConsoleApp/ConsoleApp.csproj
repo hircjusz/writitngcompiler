@@ -57,6 +57,10 @@
       <Project>{171f600b-f02c-40f3-a3be-6917f38fdf63}</Project>
       <Name>Compiler</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Intermediate\Intermediate.csproj">
+      <Project>{69d3a7c5-89a3-4279-93c0-ca88a6d598b3}</Project>
+      <Name>Intermediate</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pascal\Pascal.csproj">
       <Project>{354bdb4b-1297-4926-a33b-6e3708555eba}</Project>
       <Name>Pascal</Name>
