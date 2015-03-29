@@ -9,6 +9,7 @@ namespace Intermediate.Symbols
         public SymTabStack(int currentNestingLevel)
         {
             this._currentNestingLevel = currentNestingLevel;
+            Add(SymTabFactory.CreateSymTab(_currentNestingLevel));
         }
         public SymTabStack()
         {
@@ -26,17 +27,17 @@ namespace Intermediate.Symbols
 
         public ISymTabEntry EnterLocal(string name)
         {
-            throw new NotImplementedException();
+            return this[_currentNestingLevel].Enter(name);
         }
 
         public ISymTabEntry LookupLocal(string name)
         {
-            throw new NotImplementedException();
+            return this[_currentNestingLevel].Lookup(name);
         }
 
         public ISymTabEntry Lookup(string name)
         {
-            throw new NotImplementedException();
+            return LookupLocal(name);
         }
     }
 

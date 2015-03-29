@@ -42,7 +42,7 @@
     <Compile Include="Symbols\SymTab.cs" />
     <Compile Include="Symbols\SymTabEntry.cs" />
     <Compile Include="Symbols\SymTabFactory.cs" />
-    <Compile Include="Symbols\SymTabKey.cs" />
+    <Compile Include="Symbols\SymTabEnum.cs" />
     <Compile Include="Symbols\SymTabStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

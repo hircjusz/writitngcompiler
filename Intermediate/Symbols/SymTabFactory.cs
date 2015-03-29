@@ -24,5 +24,10 @@ namespace Intermediate.Symbols
             return new SymTab(nestingLevel);
         }
 
+
+        public static ISymTabEntry CreateSymTabEntry(string name,ISymTab symTab)
+        {
+            return new SymTabEntry(name, symTab);
+        }
     }
 }

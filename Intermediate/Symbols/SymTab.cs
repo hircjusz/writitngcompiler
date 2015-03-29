@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Intermediate.Symbols
 {
 
-    public class SymTab : Dictionary<string,ISymTabEntry>,ISymTab
+    public class SymTab : Dictionary<string, ISymTabEntry>, ISymTab
     {
         private int _currentNestingLevel;
 
@@ -24,17 +25,19 @@ namespace Intermediate.Symbols
 
         public ISymTabEntry Enter(string name)
         {
-            throw new NotImplementedException();
+            var netry = SymTabFactory.CreateSymTabEntry(name, this);
+            Add(name, netry);
+            return netry;
         }
 
         public ISymTabEntry Lookup(string name)
         {
-            throw new NotImplementedException();
+            return this.FirstOrDefault(t => t.Key == name).Value;
         }
 
         public IList<ISymTabEntry> SortedEntries()
         {
-            throw new NotImplementedException();
+            return this.OrderBy(t => t.Key).Select(t=>t.Value).ToList();
         }
     }
 

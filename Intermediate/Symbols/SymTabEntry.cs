@@ -6,36 +6,47 @@ using System.Threading.Tasks;
 
 namespace Intermediate.Symbols
 {
-    public class SymTabEntry : ISymTabEntry
+    public class SymTabEntry :Dictionary<SymTabEnum,object>, ISymTabEntry
     {
+        private string name;
+        private ISymTab symTab;
+        private IList<int> lineNumbers;
+
+        public SymTabEntry(string name, ISymTab symTab)
+        {
+            this.name = name;
+            this.symTab = symTab;
+            lineNumbers = new List<int>();
+        }
+
         public string GetName()
         {
-            throw new NotImplementedException();
+            return name;
         }
 
         public ISymTab GetSymTab()
         {
-            throw new NotImplementedException();
+            return symTab;
         }
 
         public void AppendLineNumber(int lineNumber)
         {
-            throw new NotImplementedException();
+            lineNumbers.Add(lineNumber);
         }
 
         public IList<int> GetLineNumbers()
         {
-            throw new NotImplementedException();
+            return lineNumbers;
         }
 
-        public void SetAttribute(ISymTabKey key, object value)
+        public void SetAttribute(SymTabEnum key, object value)
         {
-            throw new NotImplementedException();
+           Add(key,value);
         }
 
-        public object GetAttribute(ISymTabKey key)
+        public object GetAttribute(SymTabEnum key)
         {
-            throw new NotImplementedException();
+            return this[key];
         }
     }
 
@@ -45,19 +56,19 @@ namespace Intermediate.Symbols
     * Getter.
     * @return the name of the entry.
     */
-         String GetName();
+        String GetName();
 
         /**
          * Getter.
          * @return the symbol table that contains this entry.
          */
-         ISymTab GetSymTab();
+        ISymTab GetSymTab();
 
         /**
          * Append a source line number to the entry.
          * @param lineNumber the line number to append.
          */
-         void AppendLineNumber(int lineNumber);
+        void AppendLineNumber(int lineNumber);
 
         /**
          * Getter.
@@ -70,9 +81,9 @@ namespace Intermediate.Symbols
          * @param key the attribute key.
          * @param value the attribute value.
          */
-         void SetAttribute(ISymTabKey key, Object value);
+        void SetAttribute(SymTabEnum key, Object value);
 
-        Object GetAttribute(ISymTabKey key);
+        Object GetAttribute(SymTabEnum key);
 
     }
 }
