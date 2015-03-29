@@ -13,7 +13,7 @@ namespace Intermediate.Symbols
             throw new NotImplementedException();
         }
 
-        public SymTab GetSymTab()
+        public ISymTab GetSymTab()
         {
             throw new NotImplementedException();
         }
@@ -28,12 +28,12 @@ namespace Intermediate.Symbols
             throw new NotImplementedException();
         }
 
-        public void SetAttribute(SymTabKey key, object value)
+        public void SetAttribute(ISymTabKey key, object value)
         {
             throw new NotImplementedException();
         }
 
-        public object GetAttribute(SymTabKey key)
+        public object GetAttribute(ISymTabKey key)
         {
             throw new NotImplementedException();
         }
@@ -51,7 +51,7 @@ namespace Intermediate.Symbols
          * Getter.
          * @return the symbol table that contains this entry.
          */
-         SymTab GetSymTab();
+         ISymTab GetSymTab();
 
         /**
          * Append a source line number to the entry.
@@ -70,9 +70,9 @@ namespace Intermediate.Symbols
          * @param key the attribute key.
          * @param value the attribute value.
          */
-         void SetAttribute(SymTabKey key, Object value);
+         void SetAttribute(ISymTabKey key, Object value);
 
-        Object GetAttribute(SymTabKey key);
+        Object GetAttribute(ISymTabKey key);
 
     }
 }

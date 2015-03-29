@@ -1,25 +1,40 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Intermediate.Symbols
 {
-    public class SymTabStack : ISymTabStack
+    public class SymTabStack :List<ISymTab>, ISymTabStack
     {
-        public SymTab GetLocalSymTab()
+        public SymTabStack(int currentNestingLevel)
+        {
+            this._currentNestingLevel = currentNestingLevel;
+        }
+        public SymTabStack()
+        {
+            this._currentNestingLevel = 0;
+            Add(SymTabFactory.CreateSymTab(_currentNestingLevel));
+
+        }
+
+        public int _currentNestingLevel;
+
+        public ISymTab GetLocalSymTab()
+        {
+            return this[_currentNestingLevel];
+        }
+
+        public ISymTabEntry EnterLocal(string name)
         {
             throw new NotImplementedException();
         }
 
-        public SymTabEntry EnterLocal(string name)
+        public ISymTabEntry LookupLocal(string name)
         {
             throw new NotImplementedException();
         }
 
-        public SymTabEntry LookupLocal(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public SymTabEntry Lookup(string name)
+        public ISymTabEntry Lookup(string name)
         {
             throw new NotImplementedException();
         }
@@ -37,28 +52,28 @@ namespace Intermediate.Symbols
          * Return the local symbol table which is at the top of the stack.
          * @return the local symbol table.
          */
-         SymTab GetLocalSymTab();
+         ISymTab GetLocalSymTab();
 
          /**
           * Create and enter a new entry into the local symbol table.
           * @param name the name of the entry.
           * @return the new entry.
           */
-        SymTabEntry EnterLocal(String name);
+        ISymTabEntry EnterLocal(String name);
 
         /**
          * Look up an existing symbol table entry in the local symbol table.
          * @param name the name of the entry.
          * @return the entry, or null if it does not exist.
          */
-        SymTabEntry LookupLocal(String name);
+        ISymTabEntry LookupLocal(String name);
 
         /**
          * Look up an existing symbol table entry throughout the stack.
          * @param name the name of the entry.
          * @return the entry, or null if it does not exist.
          */
-        SymTabEntry Lookup(String name);
+        ISymTabEntry Lookup(String name);
 
     }
 }

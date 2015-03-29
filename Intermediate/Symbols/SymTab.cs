@@ -4,24 +4,35 @@ using System.Collections.Generic;
 namespace Intermediate.Symbols
 {
 
-    public class SymTab : ISymTab
+    public class SymTab : Dictionary<string,ISymTabEntry>,ISymTab
     {
+        private int _currentNestingLevel;
+
+        public SymTab()
+        {
+        }
+
+        public SymTab(int nestingLevel)
+        {
+            _currentNestingLevel = nestingLevel;
+        }
+
         public int GetNestingLevel()
         {
             throw new NotImplementedException();
         }
 
-        public SymTabEntry Enter(string name)
+        public ISymTabEntry Enter(string name)
         {
             throw new NotImplementedException();
         }
 
-        public SymTabEntry Lookup(string name)
+        public ISymTabEntry Lookup(string name)
         {
             throw new NotImplementedException();
         }
 
-        public IList<SymTabEntry> SortedEntries()
+        public IList<ISymTabEntry> SortedEntries()
         {
             throw new NotImplementedException();
         }
@@ -41,18 +52,18 @@ namespace Intermediate.Symbols
          * @param name the name of the entry.
          * @return the new entry.
          */
-        SymTabEntry Enter(String name);
+        ISymTabEntry Enter(String name);
 
         /**
          * Look up an existing symbol table entry.
          * @param name the name of the entry.
          * @return the entry, or null if it does not exist.
          */
-        SymTabEntry Lookup(String name);
+        ISymTabEntry Lookup(String name);
 
         /**
          * @return a list of symbol table entries sorted by name.
          */
-        IList<SymTabEntry> SortedEntries();
+        IList<ISymTabEntry> SortedEntries();
     }
 }

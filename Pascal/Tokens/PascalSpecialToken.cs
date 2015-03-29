@@ -18,7 +18,6 @@ namespace Pascal.Tokens
             StringBuilder builder = new StringBuilder();
             char currentChar = PeekCurrentChar();
             text += currentChar;
-            bool move = false;
             switch (currentChar)
             {
                 case '^':

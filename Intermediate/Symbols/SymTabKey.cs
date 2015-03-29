@@ -8,6 +8,9 @@ namespace Intermediate.Symbols
 {
     public class SymTabKey : ISymTabKey
     {
+
+
+
     }
 
 
