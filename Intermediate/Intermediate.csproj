@@ -39,6 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Code.cs" />
+    <Compile Include="Code\CodeFactory.cs" />
+    <Compile Include="Code\CodeNode.cs" />
+    <Compile Include="Code\CodeEnums.cs" />
     <Compile Include="Symbols\SymTab.cs" />
     <Compile Include="Symbols\SymTabEntry.cs" />
     <Compile Include="Symbols\SymTabFactory.cs" />
@@ -46,9 +50,7 @@
     <Compile Include="Symbols\SymTabStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Code\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
