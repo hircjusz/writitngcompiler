@@ -15,7 +15,7 @@ namespace Pascal.Tokens
 
         protected override void Extract()
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
             char currentChar = PeekCurrentChar();
             text += currentChar;
             switch (currentChar)

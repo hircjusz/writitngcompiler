@@ -16,7 +16,7 @@ namespace Pascal.Tokens
 
         protected override void Extract()
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
             char ch = PeekCurrentChar();
             while (Char.IsLetterOrDigit(ch))
             {
@@ -26,7 +26,7 @@ namespace Pascal.Tokens
             this.text = builder.ToString();
             if (PascalTokenType.RESERVED_WORDS.Contains(text.ToUpper()))
             {
-                this.Type = new ReservedWordToken();
+                this.Type = new ReservedWordToken(text.ToUpper());
 
             }
             else

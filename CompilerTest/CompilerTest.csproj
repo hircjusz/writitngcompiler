@@ -71,6 +71,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sources\CodeNodeTest.txt" />
     <Content Include="Sources\File1.txt" />
     <Content Include="Sources\symTabTest.txt" />
   </ItemGroup>

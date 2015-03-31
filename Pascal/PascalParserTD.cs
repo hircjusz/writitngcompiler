@@ -5,8 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Compiler;
 using Compiler.Messages;
+using Intermediate.Code;
 using Intermediate.Symbols;
+using Pascal.Parsers;
 using Pascal.Tokens;
+
 
 namespace Pascal
 {
@@ -17,16 +20,43 @@ namespace Pascal
 
         public override void Parse()
         {
-            Token token;
-            while(!((token=scanner.extractToken()) is EofToken )){
-                if (token.Type.GetType() == typeof (IdentifierToken))
+
+            ICode code = CodeFactory.CreateICode();
+
+            try
+            {
+                var token = NextToken();
+                ICodeNode root = null;
+
+                if (token.Type.GetType() == typeof (ReservedWordToken) && token.Type.GetTokenName() == "BEGIN")
                 {
-                    string name = token.Text.ToLower();
-                    var entry=symTabStack.Lookup(name) ?? symTabStack.EnterLocal(name);
-                    entry.AppendLineNumber(token.LineNum);
+                    var statementParser = new StatementParser(this);
+                    root = statementParser.Parse(token);
+                    //token = currentToken();
+
                 }
-                OnMessage(new Message(token.Text,MessageType.TOKEN,token));
+
+                token = currentToken();
+                if (root != null)
+                {
+                    iCode.SetRoot(root);
+                }
+
             }
+            catch (Exception ex)
+            {
+                
+            }
+            //Token token;
+            //while(!((token=scanner.extractToken()) is EofToken )){
+            //    if (token.Type.GetType() == typeof (IdentifierToken))
+            //    {
+            //        string name = token.Text.ToLower();
+            //        var entry=symTabStack.Lookup(name) ?? symTabStack.EnterLocal(name);
+            //        entry.AppendLineNumber(token.LineNum);
+            //    }
+            //    OnMessage(new Message(token.Text,MessageType.TOKEN,token));
+            //}
 
 
         }

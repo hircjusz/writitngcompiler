@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Parsers\IParserStatement.cs" />
     <Compile Include="Listeners\PascalMessageListener.cs" />
+    <Compile Include="Parsers\StatementParser.cs" />
     <Compile Include="PascalParserTD.cs" />
     <Compile Include="PascalScanner.cs" />
     <Compile Include="PascalToken.cs" />
@@ -61,6 +63,7 @@
       <Name>Intermediate</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

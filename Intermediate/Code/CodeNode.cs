@@ -8,18 +8,16 @@ namespace Intermediate.Code
 {
     public interface ICodeNode
     {
-        //CodeNodeTypeEnum GetType();
         CodeNodeTypeEnum Type { get; }
         ICodeNode Parent { get; set; }
         ICodeNode AddChild(ICodeNode node);
-        //IList<ICodeNode> GetChildren();
         IList<ICodeNode> Children { get; set; }
         void SetAttribute(CodeKeyEnum key, Object value);
         Object GetAttribute(CodeKeyEnum key);
         ICodeNode Copy();
     }
 
-    public class CodeNode : Dictionary<CodeKeyEnum,Object>,ICodeNode
+    public class CodeNode : Dictionary<CodeKeyEnum, Object>, ICodeNode
     {
         private readonly CodeNodeTypeEnum _type;
 
@@ -27,7 +25,7 @@ namespace Intermediate.Code
         {
             _type = type;
             Parent = null;
-            Children= new List<ICodeNode>();
+            Children = new List<ICodeNode>();
         }
 
         public ICodeNode Parent { get; set; }
@@ -44,7 +42,7 @@ namespace Intermediate.Code
             if (node != null)
             {
                 Children.Add(node);
-                ((CodeNode) node).Parent = this;
+                ((CodeNode)node).Parent = this;
             }
             return node;
         }
@@ -52,7 +50,7 @@ namespace Intermediate.Code
 
         public void SetAttribute(CodeKeyEnum key, object value)
         {
-            Add(key,value);
+            Add(key, value);
         }
 
         public object GetAttribute(CodeKeyEnum key)
@@ -62,7 +60,12 @@ namespace Intermediate.Code
 
         public ICodeNode Copy()
         {
-            throw new NotImplementedException();
+            var copy = CodeFactory.CreateICodeNode(_type);
+            foreach (var key in this.Keys)
+            {
+                copy.SetAttribute(key, this[key]);
+            }
+            return copy;
         }
 
         public override string ToString()

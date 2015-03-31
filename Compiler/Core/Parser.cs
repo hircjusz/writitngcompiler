@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Compiler.Core;
 using Compiler.Messages;
+using Intermediate.Code;
 using Intermediate.Symbols;
 
 namespace Compiler
@@ -73,8 +73,9 @@ namespace Compiler
             return scanner.currentToken();
         }
 
-        public virtual Token NextToken() {
-            return new Token();
+        public virtual Token NextToken()
+        {
+            return scanner.extractToken();
         }
 
 

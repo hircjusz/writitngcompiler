@@ -37,11 +37,13 @@ namespace Compiler
         }
 
         public virtual Token nextToken() {
-            return new Token();
+            var token = new Token(source);
+            return token;
         }
 
         public virtual Token extractToken() {
-            return new Token();
+            var token = new Token(source);
+            return token;
         }
         
         public virtual char currentChar() {

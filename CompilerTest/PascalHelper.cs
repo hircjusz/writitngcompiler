@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Backend;
 using Compiler;
-using Compiler.Core;
 using Compiler.Factory;
 using Compiler.Messages;
+using Intermediate.Code;
 using Intermediate.Symbols;
 
 namespace CompilerTest

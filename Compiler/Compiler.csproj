@@ -39,10 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Code.cs" />
     <Compile Include="Messages\TokenEventHandler.cs" />
     <Compile Include="Token\EofToken.cs" />
-    <Compile Include="Core\ICode.cs" />
     <Compile Include="Messages\LoggerEventHandler.cs" />
     <Compile Include="Messages\MessageHandler.cs" />
     <Compile Include="Messages\MessageType.cs" />

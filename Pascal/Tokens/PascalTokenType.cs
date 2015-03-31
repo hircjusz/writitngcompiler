@@ -58,10 +58,14 @@ namespace Pascal.Tokens
 
     public class ReservedWordToken : TokenType
     {
-        public override string GetTokenName()
+        public ReservedWordToken(string name) : base(name)
         {
-            return "ReservedWord";
         }
+
+        //public override string GetTokenName()
+        //{
+        //    return "ReservedWord";
+        //}
     }
 
 

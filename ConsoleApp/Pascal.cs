@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Compiler;
-using Compiler.Core;
+﻿using Compiler;
 using Backend;
 using Compiler.Factory;
 using Compiler.Messages;
+using Intermediate.Code;
 using Intermediate.Symbols;
 
 namespace ConsoleApp
