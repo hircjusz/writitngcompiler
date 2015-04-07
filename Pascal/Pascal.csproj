@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Parsers\AssignmentStatementParser.cs" />
+    <Compile Include="Parsers\CompoundStatementParser.cs" />
     <Compile Include="Parsers\IParserStatement.cs" />
     <Compile Include="Listeners\PascalMessageListener.cs" />
     <Compile Include="Parsers\StatementParser.cs" />

@@ -28,7 +28,7 @@ namespace Pascal
                 var token = NextToken();
                 ICodeNode root = null;
 
-                if (token.Type.GetType() == typeof (ReservedWordToken) && token.Type.GetTokenName() == "BEGIN")
+                if (token.Type.GetType() == typeof (ReservedWordToken) && token.Type.GetTokenName() ==PascalTokenReservedEnum.BEGIN.ToString())
                 {
                     var statementParser = new StatementParser(this);
                     root = statementParser.Parse(token);

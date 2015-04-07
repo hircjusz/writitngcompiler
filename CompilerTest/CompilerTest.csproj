@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CodeNodeTest.cs" />
+    <Compile Include="CompStatementTest.cs" />
     <Compile Include="PascalHelper.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sources\CodeNodeTest.txt" />
+    <Content Include="Sources\CompoundTest1.txt" />
     <Content Include="Sources\File1.txt" />
     <Content Include="Sources\symTabTest.txt" />
   </ItemGroup>

@@ -16,6 +16,15 @@ namespace Pascal.Tokens
         public static int RESERVED_WORD = counter + 2;
     }
 
+    public enum PascalTokenReservedEnum
+    {
+        BEGIN, AND, ARRAY,  CASE, CONST, DIV, DO, DOWNTO, ELSE, END,
+        FILE, FOR, FUNCTION, GOTO, IF, IN, LABEL, MOD, NIL, NOT,
+        OF, OR, PACKED, PROCEDURE, PROGRAM, RECORD, REPEAT, SET,
+        THEN, TO, TYPE, UNTIL, VAR, WHILE, WITH
+    }
+
+
     public class UndefinedToken : TokenType
     {
         public override string GetTokenName()
@@ -58,14 +67,32 @@ namespace Pascal.Tokens
 
     public class ReservedWordToken : TokenType
     {
-        public ReservedWordToken(string name) : base(name)
+        private PascalTokenReservedEnum _reservedEnum;
+
+        public ReservedWordToken(PascalTokenReservedEnum reservedEnum)
+            : base(reservedEnum.ToString())
         {
+            _reservedEnum = reservedEnum;
         }
 
-        //public override string GetTokenName()
-        //{
-        //    return "ReservedWord";
-        //}
+        public ReservedWordToken(string reservedEnum)
+            : base(reservedEnum)
+        {
+            PascalTokenReservedEnum enumReturn;
+            PascalTokenReservedEnum.TryParse(reservedEnum,true,out  enumReturn);
+            _reservedEnum = enumReturn;
+
+        }
+
+        public PascalTokenReservedEnum ReservedEnum
+        {
+            get { return _reservedEnum; }
+        }
+
+        public override string GetTokenName()
+        {
+            return ReservedEnum.ToString();
+        }
     }
 
 
