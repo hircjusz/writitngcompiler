@@ -32,8 +32,8 @@ namespace Pascal.Parsers
            
             if (token.Type.GetType() == typeof(IdentifierToken) )
             {
-
-
+                var assignmentStatementParser= new AssignmentStatementParser(_parser);
+                statementNode = assignmentStatementParser.Parse(token);
             }
             else
             {
@@ -58,7 +58,7 @@ namespace Pascal.Parsers
         {
 
             while (!(token is EofToken) && 
-                (token.Type.GetType() == typeof(ReservedWordToken) && terminator!=((ReservedWordToken)token.Type).ReservedEnum))
+                !(token.Type.GetType() == typeof(ReservedWordToken) && terminator!=((ReservedWordToken)token.Type).ReservedEnum))
             {
                 ICodeNode statementNode = Parse(token);
                 parentNode.AddChild(statementNode);
@@ -68,8 +68,8 @@ namespace Pascal.Parsers
 
                 if (type.GetType() == typeof (SpecialToken) && Equals(token.Value, ";"))
                 {
-
-
+                    //zjadamy kolejny token
+                    token = _parser.NextToken();
                 }
 
             }

@@ -38,7 +38,8 @@ namespace Pascal.Tokens
                     builder.Append(currentChar);
                     NextChar();
                     break;
-                case ':':
+                case ':': 
+                    builder.Append(currentChar);
                     currentChar = NextChar();
                     if (currentChar == '=')
                     {
@@ -89,11 +90,7 @@ namespace Pascal.Tokens
                     break;
 
             }
-            if (Type.GetType() == typeof(SpecialToken))
-            {
-                this.Type = new SpecialToken();
-
-            }
+           this.Type=new SpecialToken();
 
 
             //builder.Append(currentChar);
