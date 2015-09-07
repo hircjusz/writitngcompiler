@@ -70,10 +70,13 @@ namespace Pascal.Tokens
             if (IsDouble)
             {
                 DoubleValue = Convert.ToDouble(text);
+                this.Type=new RealToken();
+                
             }
             else
             {
                 IntValue = Convert.ToInt32(text);
+                this.Type=new IntegerToken();
             }
         }
 

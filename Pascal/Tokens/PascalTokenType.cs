@@ -41,6 +41,23 @@ namespace Pascal.Tokens
         }
     }
 
+    public class IntegerToken : TokenType
+    {
+        public override string GetTokenName()
+        {
+            return "Integer";
+        }
+    }
+
+    public class RealToken : TokenType
+    {
+        public override string GetTokenName()
+        {
+            return "Real";
+        }
+    }
+
+
     public class StringToken : TokenType
     {
         public override string GetTokenName()

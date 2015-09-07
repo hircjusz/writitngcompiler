@@ -55,6 +55,8 @@
     <Compile Include="Tokens\PascalStringToken.cs" />
     <Compile Include="Tokens\PascalTokenType.cs" />
     <Compile Include="Tokens\PascalWordToken.cs" />
+    <Compile Include="Tokens\TokenCodeMapper.cs" />
+    <Compile Include="Tokens\TokenConst.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Compiler\Compiler.csproj">
@@ -66,7 +68,9 @@
       <Name>Intermediate</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Exception\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -37,7 +37,7 @@ namespace Pascal.Parsers
             variableNode.SetAttribute(CodeKeyEnum.ID, targetId);
             assigngnNode.AddChild(variableNode);
 
-            if (token.Type.GetType() == typeof(SpecialToken) && token.Text == ":=")
+            if (token.Type.GetType() == typeof(SpecialToken) && token.Text == TokenConst.Colon_Equlas)
             {
                 token = _parser.NextToken();
             }
@@ -47,7 +47,8 @@ namespace Pascal.Parsers
             }
             
             var expressionParser = new ExpressionParser(_parser);
-            expressionParser.Parse(token);
+            assigngnNode.AddChild(expressionParser.Parse(token));
+
             
             
             return assigngnNode;
