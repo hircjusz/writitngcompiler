@@ -10,11 +10,13 @@ namespace Pascal.Tokens
 {
     public class TokenCodeMapper
     {
-        public  Dictionary<string,CodeNodeTypeEnum> _mapper= new 
+        public Dictionary<string, CodeNodeTypeEnum> _mapper = new
             Dictionary<string, CodeNodeTypeEnum>
         {
            {TokenConst.Equals,CodeNodeTypeEnum.EQ},
-           {TokenConst.Minus,CodeNodeTypeEnum.SUBTRACT}
+           {TokenConst.Minus,CodeNodeTypeEnum.SUBTRACT},
+           {TokenConst.Plus,CodeNodeTypeEnum.ADD},
+           {TokenConst.Slash,CodeNodeTypeEnum.INTEGER_DIVIDE}
         };
 
 
@@ -34,7 +36,7 @@ namespace Pascal.Tokens
             {
                 return _mapper[token];
             }
-            throw new Exception(string.Format("token {0}  nie posiada mapowania!",token)); 
+            throw new Exception(string.Format("token {0}  nie posiada mapowania!", token));
         }
 
         public CodeNodeTypeEnum GetNodeEnumType(Token token)

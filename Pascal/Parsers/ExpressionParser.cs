@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Compiler;
 using Intermediate.Code;
+using Intermediate.Symbols;
 using Pascal.Tokens;
 
 namespace Pascal.Parsers
@@ -100,6 +101,21 @@ namespace Pascal.Parsers
 
             switch (token.Type.GetTokenName())
             {
+                case "Identifier":
+                    string name = token.Text.ToLower();
+                   ISymTabEntry id= _parser.SymTabStack.Lookup(name);
+                    if (id == null)
+                    {
+                        //todo error handler rzuca exception
+                        id = _parser.SymTabStack.EnterLocal(name);
+                    }
+                    rootNode = CodeFactory.CreateICodeNode(CodeNodeTypeEnum.VARIABLE);
+                    rootNode.SetAttribute(CodeKeyEnum.ID, id);
+                    id.AppendLineNumber(token.LineNum);
+
+                    token = _parser.NextToken();
+
+                    break;
                 case "Integer":
                     rootNode = CodeFactory.CreateICodeNode(CodeNodeTypeEnum.INTEGER_CONSTANT);
                     rootNode.SetAttribute(CodeKeyEnum.VALUE, token.Value);
