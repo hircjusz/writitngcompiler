@@ -18,6 +18,16 @@ namespace Pascal.Tokens
         };
 
 
+        public bool IsCodeNodeTypeEnum(string token)
+        {
+            return (_mapper.ContainsKey(token));
+        }
+
+        public bool IsCodeNodeTypeEnum(Token token)
+        {
+            return (_mapper.ContainsKey(token.Text));
+        }
+
         public CodeNodeTypeEnum GetNodeEnumType(string token)
         {
             if (_mapper.ContainsKey(token))

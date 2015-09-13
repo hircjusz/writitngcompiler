@@ -31,7 +31,7 @@ namespace Compiler
         }
         private Object value;
 
-        public Object Value
+        public virtual Object Value
         {
             get { return this.value; }
             set { this.value = value; }

@@ -15,9 +15,17 @@ namespace Pascal.Tokens
         protected double DoubleValue;
         protected bool IsDouble = false;
 
+        public override object Value {
+            get
+            {
+                if (IsDouble) return DoubleValue;
+                return IntValue;
+            }
+        }
+
         protected override void Extract()
         {
-            StringBuilder textBuffer = new StringBuilder();
+            var textBuffer = new StringBuilder();
 
             char ch = PeekCurrentChar();
             while (Char.IsDigit(ch))

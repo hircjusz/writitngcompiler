@@ -11,14 +11,14 @@ namespace Pascal.Parsers
 {
     public class ExpressionParser : IParserStatement
     {
-        private Parser _parser;
-        private TokenCodeMapper _codeMapper = new TokenCodeMapper();
-        private  IList<string> addOpsSimpleExpression= new List<string>()
+        private readonly Parser _parser;
+        private readonly TokenCodeMapper _codeMapper = new TokenCodeMapper();
+        private readonly IList<string> addOpsSimpleExpression= new List<string>()
         {
             TokenConst.Minus,TokenConst.Plus,TokenConst.Or
         };
 
-        private IList<string> multOpsTermExpression = new List<string>()
+        private readonly IList<string> multOpsTermExpression = new List<string>()
         {
             TokenConst.Star,TokenConst.Slash,TokenConst.Div
         };
@@ -33,12 +33,15 @@ namespace Pascal.Parsers
 
             ICodeNode rootNode = ParseSmpleExpression(token);
             token = _parser.currentToken();
-            var codeNode = _codeMapper.GetNodeEnumType(token);
-            var opNode = CodeFactory.CreateICodeNode(codeNode);
-            opNode.AddChild(rootNode);
-            token = _parser.NextToken();
-            opNode.AddChild(ParseSmpleExpression(token));
-            rootNode = opNode;
+            if (_codeMapper.IsCodeNodeTypeEnum(token))
+            {
+                var codeNode = _codeMapper.GetNodeEnumType(token);
+                var opNode = CodeFactory.CreateICodeNode(codeNode);
+                opNode.AddChild(rootNode);
+                token = _parser.NextToken();
+                opNode.AddChild(ParseSmpleExpression(token));
+                rootNode = opNode;
+            }
             return rootNode;
         }
 
@@ -72,7 +75,7 @@ namespace Pascal.Parsers
                 token = _parser.NextToken();
             }
 
-            return CodeFactory.CreateICodeNode(CodeNodeTypeEnum.NEGATE);
+            return rootNode;
         }
 
         private ICodeNode ParseTerm(Token token)

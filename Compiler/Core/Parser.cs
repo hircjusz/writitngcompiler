@@ -26,6 +26,13 @@ namespace Compiler
             set { symTab = value; }
         }
 
+        protected Token _currentToken;
+
+        public Token CurrentToken
+        {
+            get { return _currentToken; }
+        }
+
         protected ISymTabStack symTabStack;
 
         public ISymTabStack SymTabStack
@@ -70,12 +77,14 @@ namespace Compiler
 
         public virtual Token currentToken()
         {
-            return scanner.currentToken();
+            return CurrentToken;
+            //return scanner.currentToken();
         }
 
         public virtual Token NextToken()
         {
-            return scanner.extractToken();
+            _currentToken= scanner.extractToken();
+            return _currentToken;
         }
 
 
