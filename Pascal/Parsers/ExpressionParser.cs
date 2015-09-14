@@ -73,7 +73,7 @@ namespace Pascal.Parsers
                 token = _parser.NextToken();
                 opNode.AddChild(ParseTerm(token));
                 rootNode = opNode;
-                token = _parser.NextToken();
+                token = _parser.currentToken();
             }
 
             return rootNode;
@@ -121,6 +121,29 @@ namespace Pascal.Parsers
                     rootNode.SetAttribute(CodeKeyEnum.VALUE, token.Value);
                     token = _parser.NextToken();
                     break;
+                case "Special":
+                {
+                    if (token.Text == "(")
+                    {
+                        token = _parser.NextToken();
+                        rootNode = ParseExpression(token);
+                        token = _parser.currentToken();
+                        if (token.Text == ")")
+                        {
+                            token = _parser.NextToken();
+                        }
+                        else
+                        {
+                            throw new Exception("Oczekiwano prawego nawiasu");
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Oczekiwano lewego nawiasu");
+                    }
+                }
+                break;
+
 
             }
 
