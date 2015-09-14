@@ -58,7 +58,7 @@ namespace Pascal.Parsers
         {
 
             while (!(token is EofToken) && 
-                !(token.Type.GetType() == typeof(ReservedWordToken) && terminator!=((ReservedWordToken)token.Type).ReservedEnum))
+                !(token.Type.GetType() == typeof(ReservedWordToken) && terminator==((ReservedWordToken)token.Type).ReservedEnum))
             {
                 ICodeNode statementNode = Parse(token);
                 parentNode.AddChild(statementNode);

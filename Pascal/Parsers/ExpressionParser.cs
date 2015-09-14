@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -112,14 +113,29 @@ namespace Pascal.Parsers
                     rootNode = CodeFactory.CreateICodeNode(CodeNodeTypeEnum.VARIABLE);
                     rootNode.SetAttribute(CodeKeyEnum.ID, id);
                     id.AppendLineNumber(token.LineNum);
-
-                    token = _parser.NextToken();
+                    _parser.NextToken();
 
                     break;
                 case "Integer":
                     rootNode = CodeFactory.CreateICodeNode(CodeNodeTypeEnum.INTEGER_CONSTANT);
                     rootNode.SetAttribute(CodeKeyEnum.VALUE, token.Value);
+                    _parser.NextToken();
+                    break;
+                case "String":
+                    rootNode = CodeFactory.CreateICodeNode(CodeNodeTypeEnum.STRING_CONSTANT);
+                    rootNode.SetAttribute(CodeKeyEnum.VALUE, token.Value);
+                     _parser.NextToken();
+                    break;
+
+                case "Real":
+                     rootNode = CodeFactory.CreateICodeNode(CodeNodeTypeEnum.REAL_CONSTANT);
+                    rootNode.SetAttribute(CodeKeyEnum.VALUE, token.Value);
+                     _parser.NextToken();
+                    break;
+                case "NOT":
                     token = _parser.NextToken();
+                    rootNode = CodeFactory.CreateICodeNode(CodeNodeTypeEnum.NOT);
+                    rootNode.AddChild(ParseFactor(token));
                     break;
                 case "Special":
                 {
@@ -143,8 +159,6 @@ namespace Pascal.Parsers
                     }
                 }
                 break;
-
-
             }
 
             return rootNode;

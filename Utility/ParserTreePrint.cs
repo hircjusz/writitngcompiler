@@ -9,6 +9,26 @@ namespace Utility
     public class ParserTreePrint
     {
 
+        StringBuilder _builder= new StringBuilder();
+        
+        public ParserTreePrint()
+        {
+
+        }
+
+        public void Print()
+        {
+        }
+
+        public void PrintNode()
+        {
+        }
+
+        public void PrintChildNodes()
+        {
+
+        }
+
 
     }
 }
