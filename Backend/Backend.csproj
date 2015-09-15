@@ -43,9 +43,12 @@
     <Compile Include="Factory\BackendFactory.cs" />
     <Compile Include="CodeGenerator.cs" />
     <Compile Include="Compiler.cs" />
-    <Compile Include="Executor.cs" />
+    <Compile Include="Interpreter\AssignmentExecutor.cs" />
+    <Compile Include="Interpreter\CompoundExecutor.cs" />
+    <Compile Include="Interpreter\Executor.cs" />
     <Compile Include="Factory\FrontenedFactory.cs" />
-    <Compile Include="Interpreter.cs" />
+    <Compile Include="Interpreter\ExpressionExecutor.cs" />
+    <Compile Include="Interpreter\StatementExecutor.cs" />
     <Compile Include="Listeners\BackendMessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
