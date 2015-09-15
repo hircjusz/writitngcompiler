@@ -1,3 +1,5 @@
 ﻿BEGIN
+    alpha:=-88;
+	beta:=99;
     result:= (betta-gamma);
 END

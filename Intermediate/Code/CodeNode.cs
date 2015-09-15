@@ -15,6 +15,7 @@ namespace Intermediate.Code
         void SetAttribute(CodeKeyEnum key, Object value);
         Object GetAttribute(CodeKeyEnum key);
         ICodeNode Copy();
+        Dictionary<CodeKeyEnum, Object> Attributes { get; }
     }
 
     public class CodeNode : Dictionary<CodeKeyEnum, Object>, ICodeNode
@@ -71,6 +72,12 @@ namespace Intermediate.Code
         public override string ToString()
         {
             return _type.ToString();
+        }
+
+
+        public Dictionary<CodeKeyEnum, object> Attributes
+        {
+            get { return this; }
         }
     }
 }

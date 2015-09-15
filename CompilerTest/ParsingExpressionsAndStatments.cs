@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Intermediate.Code;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Utility;
 
 namespace CompilerTest
 {
@@ -59,8 +60,9 @@ namespace CompilerTest
         public void AssignTest1()
         {
             var parser = helper.Pascal("compile", "../../Sources/AssignTest.txt", "F1");
-            var code = parser.Code;
-
+            var treePrint= new ParserTreePrint();
+            var codeTree = treePrint.Print(parser.Code.GetRoot());
+            Console.WriteLine(codeTree);
         }
 
     }

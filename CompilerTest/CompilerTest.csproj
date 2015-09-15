@@ -70,6 +70,10 @@
       <Project>{69d3a7c5-89a3-4279-93c0-ca88a6d598b3}</Project>
       <Name>Intermediate</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{36ECE1EE-DD5E-45C5-B470-583997817FF3}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sources\CodeNodeTest.txt" />
