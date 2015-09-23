@@ -7,9 +7,24 @@ namespace Backend.Interpreter
 {
     public class Executor:IBackend
     {
+        private ICode _code;
+        private ISymTab symtab;
+
+
         public void Process(ICode code, ISymTab symtab)
         {
-            throw new NotImplementedException();
+            _code = code;
+            this.symtab = symtab;
+
+            var rootNode=code.GetRoot();
+            var statementExecutor = new StatementExecutor();
+            statementExecutor.Execute(rootNode);
+
+            //Todo send message
+
+
+
+
         }
     }
 

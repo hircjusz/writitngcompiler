@@ -11,7 +11,12 @@ namespace Backend.Interpreter
     {
         public object Execute(ICodeNode node)
         {
-            throw new NotImplementedException();
+            var statementExecutor = new StatementExecutor();
+            foreach (var item in node.Children)
+            {
+                return statementExecutor.Execute(item);
+            }
+            return null;
         }
     }
 }

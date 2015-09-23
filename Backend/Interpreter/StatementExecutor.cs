@@ -11,7 +11,21 @@ namespace Backend.Interpreter
     {
         public object Execute(ICodeNode node)
         {
-            throw new NotImplementedException();
+            var nodeType=node.Type;
+
+            switch (nodeType)
+            {
+                 case CodeNodeTypeEnum.COMPOUND:
+                    var compoundExecutor = new CompoundExecutor();
+                    return compoundExecutor.Execute(node);
+                    break;
+                case CodeNodeTypeEnum.ASSIGN:
+                    var assignmentExecutor = new AssignmentExecutor();
+                    return assignmentExecutor.Execute(node);
+                    break;
+            }
+            return null;
+
         }
     }
 }
