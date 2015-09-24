@@ -10,6 +10,12 @@ namespace Backend.Interpreter
 {
     public class ExpressionExecutor : IExecutor
     {
+        private IList<CodeNodeTypeEnum> _arithmeticOperations= new List<CodeNodeTypeEnum>()
+        {
+            CodeNodeTypeEnum.ADD,CodeNodeTypeEnum.SUBTRACT,CodeNodeTypeEnum.MULTIPLY,CodeNodeTypeEnum.FLOAT_DIVIDE,
+            CodeNodeTypeEnum.INTEGER_DIVIDE
+        }; 
+
         public object Execute(ICodeNode node)
         {
             switch (node.Type)
@@ -31,11 +37,7 @@ namespace Backend.Interpreter
                         {
                             return -(int)(value);
                         }
-                        else
-                        {
-                            return -(double)(value);
-                        }
-
+                        return -(double)(value);
                     }
                 default:
                     return executeBinaryOperator(node);
@@ -46,6 +48,35 @@ namespace Backend.Interpreter
 
         private object executeBinaryOperator(ICodeNode node)
         {
+            var operandNode1 = node.Children[0];
+            var operandNode2 = node.Children[1];
+
+            Object operand1 = Execute(operandNode1);
+            Object operand2 = Execute(operandNode2);
+            bool integerMode = operand1 is int && operand2 is int;
+
+
+            var nodeType = node.Type;
+
+            if (_arithmeticOperations.Contains(nodeType))
+            {
+                if (integerMode)
+                {
+                    var value1 = (int) operand1;
+                    var value2 = (int) operand2;
+                    switch (nodeType)
+                    {
+                        case CodeNodeTypeEnum.ADD: return value1 + value2;
+                        case CodeNodeTypeEnum.SUBTRACT: return value1 - value2;
+                        case CodeNodeTypeEnum.MULTIPLY: return value1 * value2;
+                    }
+
+                }
+
+
+
+            }
+
             //uruchomic Binary operator
             return null;
         }
