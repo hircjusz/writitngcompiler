@@ -18,6 +18,7 @@ namespace Pascal.Tokens
         public const string Slash = "/";
         public const string Star = "*";
         public const string Div = "div";
+        public const string Mod = "mod";
 
 
 

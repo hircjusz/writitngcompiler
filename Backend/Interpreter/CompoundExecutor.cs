@@ -14,7 +14,7 @@ namespace Backend.Interpreter
             var statementExecutor = new StatementExecutor();
             foreach (var item in node.Children)
             {
-                return statementExecutor.Execute(item);
+                 statementExecutor.Execute(item);
             }
             return null;
         }

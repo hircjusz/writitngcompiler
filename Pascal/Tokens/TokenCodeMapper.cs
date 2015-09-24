@@ -16,7 +16,10 @@ namespace Pascal.Tokens
            {TokenConst.Equals,CodeNodeTypeEnum.EQ},
            {TokenConst.Minus,CodeNodeTypeEnum.SUBTRACT},
            {TokenConst.Plus,CodeNodeTypeEnum.ADD},
-           {TokenConst.Slash,CodeNodeTypeEnum.INTEGER_DIVIDE}
+           {TokenConst.Div,CodeNodeTypeEnum.INTEGER_DIVIDE},
+           {TokenConst.Star, CodeNodeTypeEnum.MULTIPLY},
+           {TokenConst.Slash,CodeNodeTypeEnum.FLOAT_DIVIDE},
+           {TokenConst.Mod,CodeNodeTypeEnum.MOD}
         };
 
 

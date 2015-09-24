@@ -26,7 +26,7 @@ namespace Backend.Interpreter
                 case CodeNodeTypeEnum.INTEGER_CONSTANT:
                     return (int)node.GetAttribute(CodeKeyEnum.VALUE);
                 case CodeNodeTypeEnum.REAL_CONSTANT:
-                    return (decimal)node.GetAttribute(CodeKeyEnum.VALUE);
+                    return (double)node.GetAttribute(CodeKeyEnum.VALUE);
                 case CodeNodeTypeEnum.STRING_CONSTANT:
                     return (string)node.GetAttribute(CodeKeyEnum.VALUE);
                 case CodeNodeTypeEnum.NEGATE:
@@ -66,16 +66,79 @@ namespace Backend.Interpreter
                     var value2 = (int) operand2;
                     switch (nodeType)
                     {
-                        case CodeNodeTypeEnum.ADD: return value1 + value2;
-                        case CodeNodeTypeEnum.SUBTRACT: return value1 - value2;
-                        case CodeNodeTypeEnum.MULTIPLY: return value1 * value2;
+                        case CodeNodeTypeEnum.ADD:
+                            return value1 + value2;
+                        case CodeNodeTypeEnum.SUBTRACT:
+                            return value1 - value2;
+                        case CodeNodeTypeEnum.MULTIPLY:
+                            return value1*value2;
+                        case CodeNodeTypeEnum.FLOAT_DIVIDE:
+                        {
+                            if (value2 != 0)
+                            {
+                                return (double) (value1)/(double) (value2);
+                            }
+                            else
+                            {
+                                throw new Exception("Niepoprawna wartość, dzielenie przez 0");
+                            }
+                        }
+                        case CodeNodeTypeEnum.INTEGER_DIVIDE:
+                        {
+                            if (value2 != 0)
+                            {
+                                return value1/value2;
+                            }
+                            else
+                            {
+                                throw new Exception("Dzielenie przez 0");
+                            }
+
+                        }
+                        case CodeNodeTypeEnum.MOD:
+                        {
+                            if (value2 != 0)
+                            {
+                                return value1%value2;
+                            }
+                            else
+                            {
+                                throw new Exception("Dzielenie przez 0");
+                            }
+                        }
                     }
 
                 }
+                else
+                {
+                    double value1 = Convert.ToDouble(operand1);
+                    double value2 = Convert.ToDouble(operand2);
 
-
-
+                    switch (nodeType)
+                    {
+                        case CodeNodeTypeEnum.ADD:
+                            return value1 + value2;
+                        case CodeNodeTypeEnum.SUBTRACT:
+                            return value1 - value2;
+                        case CodeNodeTypeEnum.MULTIPLY:
+                            return value1*value2;
+                        case CodeNodeTypeEnum.FLOAT_DIVIDE:
+                        {
+                            if (value2 != 0)
+                            {
+                                return (double) (value1)/(double) (value2);
+                            }
+                            else
+                            {
+                                throw new Exception("Niepoprawna wartość, dzielenie przez 0");
+                            }
+                        }
+                    }
+                }
             }
+
+            //TODO AND OR
+            //TODO Relational operators
 
             //uruchomic Binary operator
             return null;
