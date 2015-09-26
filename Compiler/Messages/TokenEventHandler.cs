@@ -24,5 +24,9 @@ namespace Compiler.Messages
             Console.Write(" ");
         }
 
+        public override Message[] GetMessages()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

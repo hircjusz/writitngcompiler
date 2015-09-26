@@ -19,5 +19,10 @@ namespace Compiler.Messages
                 Console.Write(args.text);
             }
         }
+
+        public override Message[] GetMessages()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

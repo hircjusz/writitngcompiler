@@ -1,4 +1,4 @@
 ﻿BEGIN
-    alpha:=true AND false;
+    alpha:=(7+3)*5;
 	
 END

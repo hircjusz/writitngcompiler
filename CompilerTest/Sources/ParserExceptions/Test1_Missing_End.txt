@@ -1,0 +1,4 @@
+﻿BEGIN
+    alpha:=-88;
+	beta:=99;
+

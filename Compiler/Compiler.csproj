@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exception\ExceptionHandler.cs" />
+    <Compile Include="Exception\ParserException.cs" />
     <Compile Include="Messages\TokenEventHandler.cs" />
     <Compile Include="Token\EofToken.cs" />
     <Compile Include="Messages\LoggerEventHandler.cs" />

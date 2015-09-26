@@ -17,12 +17,9 @@ namespace Compiler.Factory
                     var scanner = new PascalScanner(source);
                     var parser = new PascalParserTD(scanner);
                     return parser;
-                default:
-                    throw new Exception();
-                    
+               
             }
-
-        
+        throw  new System.Exception();
         }
 
 

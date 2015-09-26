@@ -50,7 +50,9 @@ namespace CompilerTest
         [TestMethod]
         public void CompoundTest1()
         {
-            var parser = helper.Pascal("compile", "../../Sources/CompoundTest1.txt", "F1");
+            var parser = helper.Pascal("compile", "../../Sources/ParsingExpressions/CompoundTest1.txt", "F1");
+            Assert.AreEqual(parser.GetErrorCount(),0);
+
             // parser.Parse();
 
         }

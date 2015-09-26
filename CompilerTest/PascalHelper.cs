@@ -26,8 +26,10 @@ namespace CompilerTest
             source = new Source(filepath);
             parser = FrontenedFactory.CreateParser("Pascal", "top-down", source);
             var tokenEventHandler = new TokenEventHandler();
+            
             parser.MessageEvents += tokenEventHandler.HandleMessage;
             _backend = BackendFactory.Createbackend(operation);
+            
             parser.Parse();
             source.Close();
             return parser;

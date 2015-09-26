@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Compiler.Exception;
 using Compiler.Messages;
 using Intermediate.Code;
 using Intermediate.Symbols;
@@ -41,6 +42,11 @@ namespace Compiler
         }
         protected Scanner scanner = null;
 
+        protected readonly ExceptionHandler exceptionHandler= new ExceptionHandler();
+
+      
+
+
         #region Events
 
         public event EventHandler<Message> MessageEvents;
@@ -69,10 +75,14 @@ namespace Compiler
 
         }
 
-        public virtual int  getErrorCount()
+        public void RegisterException(Token token,ParserExceptionEnum ex)
         {
-            //returns number of tokens
-            return 0;
+            exceptionHandler.Register(token,ex);
+        }
+
+        public virtual int  GetErrorCount()
+        {
+            return exceptionHandler.GetErrorCount();
         }
 
         public virtual Token currentToken()

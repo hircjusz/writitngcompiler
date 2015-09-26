@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CodeNodeTest.cs" />
+    <Compile Include="ParserExceptions.cs" />
     <Compile Include="InterpretingControlStatements.cs" />
     <Compile Include="ParsingExpressionsAndStatments.cs" />
     <Compile Include="PascalHelper.cs" />
@@ -82,7 +83,13 @@
     <Content Include="Sources\InterpretingTest1.txt" />
     <Content Include="Sources\File1.txt" />
     <Content Include="Sources\AssignTest.txt" />
+    <Content Include="Sources\ParserExceptions\Test1_Missing_End.txt" />
+    <Content Include="Sources\ParsingExpressions\CompoundTest1.txt" />
     <Content Include="Sources\symTabTest.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sources\InterpretingExpressions\" />
+    <Folder Include="Sources\SzmbolTable\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

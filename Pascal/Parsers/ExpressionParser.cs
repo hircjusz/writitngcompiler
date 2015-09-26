@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Compiler;
+using Compiler.Exception;
 using Intermediate.Code;
 using Intermediate.Symbols;
 using Pascal.Tokens;
@@ -113,8 +114,8 @@ namespace Pascal.Parsers
                    ISymTabEntry id= _parser.SymTabStack.Lookup(name);
                     if (id == null)
                     {
-                        //todo error handler rzuca exception
                         id = _parser.SymTabStack.EnterLocal(name);
+                        _parser.RegisterException(token,ParserExceptionEnum.IDENTIFIER_UNDEFINED);
                     }
                     rootNode = CodeFactory.CreateICodeNode(CodeNodeTypeEnum.VARIABLE);
                     rootNode.SetAttribute(CodeKeyEnum.ID, id);
@@ -156,15 +157,20 @@ namespace Pascal.Parsers
                         }
                         else
                         {
-                            throw new Exception("Oczekiwano prawego nawiasu");
+                            _parser.RegisterException(token,ParserExceptionEnum.MISSING_RIGHT_PARENT);
                         }
                     }
                     else
                     {
-                        throw new Exception("Oczekiwano lewego nawiasu");
+                        _parser.RegisterException(token, ParserExceptionEnum.UNEXPECTED_TOKEN);
                     }
                 }
                 break;
+                     default:
+                {
+                    _parser.RegisterException(token, ParserExceptionEnum.UNEXPECTED_TOKEN);
+                }
+                    break;
             }
 
             return rootNode;

@@ -43,7 +43,7 @@
     <Compile Include="Parsers\CompoundStatementParser.cs" />
     <Compile Include="Parsers\ExpressionParser.cs" />
     <Compile Include="Parsers\IParserStatement.cs" />
-    <Compile Include="Listeners\PascalMessageListener.cs" />
+    <Compile Include="Listeners\PascalParserMessageListener.cs" />
     <Compile Include="Parsers\StatementParser.cs" />
     <Compile Include="PascalParserTD.cs" />
     <Compile Include="PascalScanner.cs" />

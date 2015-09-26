@@ -9,5 +9,7 @@ namespace Compiler.Messages
     public abstract class MessageHandler
     {
         public abstract void HandleMessage(object o, Message args );
+
+        public abstract Message[] GetMessages();
     }
 }
