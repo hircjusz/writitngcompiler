@@ -22,7 +22,13 @@ namespace Pascal.Parsers
 
         private readonly IList<string> multOpsTermExpression = new List<string>()
         {
-            TokenConst.Star,TokenConst.Slash,TokenConst.Div
+            TokenConst.Star,TokenConst.Slash,TokenConst.Div,TokenConst.Mod,TokenConst.And
+        };
+
+        private readonly  IList<string> relList= new List<string>()
+        {
+            TokenConst.Equals,TokenConst.Not_Equals,TokenConst.Less_equals,TokenConst.Less_than,
+            TokenConst.Greater_equals,TokenConst.Greater_than
         };
 
         public ExpressionParser(Parser parser)
@@ -35,7 +41,7 @@ namespace Pascal.Parsers
 
             ICodeNode rootNode = ParseSmpleExpression(token);
             token = _parser.currentToken();
-            if (_codeMapper.IsCodeNodeTypeEnum(token))
+            if (relList.Contains(token.Text.ToLower()))
             {
                 var codeNode = _codeMapper.GetNodeEnumType(token);
                 var opNode = CodeFactory.CreateICodeNode(codeNode);

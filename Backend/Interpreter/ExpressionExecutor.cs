@@ -40,13 +40,13 @@ namespace Backend.Interpreter
                         return -(double)(value);
                     }
                 default:
-                    return executeBinaryOperator(node);
+                    return ExecuteBinaryOperator(node);
             }
             return null;
         }
 
 
-        private object executeBinaryOperator(ICodeNode node)
+        private object ExecuteBinaryOperator(ICodeNode node)
         {
             var operandNode1 = node.Children[0];
             var operandNode2 = node.Children[1];
@@ -135,12 +135,67 @@ namespace Backend.Interpreter
                         }
                     }
                 }
+            }else if (nodeType == CodeNodeTypeEnum.AND || nodeType == CodeNodeTypeEnum.OR)
+            {
+                bool value1 = (bool) operand1;
+                bool value2 = (bool) operand2;
+                switch (nodeType)
+                {
+                    case CodeNodeTypeEnum.AND:
+                        return value1 && value2;
+                    case CodeNodeTypeEnum.OR:
+                        return value1 || value2;
+                }
+            }
+            else
+            {
+                if (integerMode)
+                {
+                    var value1 = (int)operand1;
+                    var value2 = (int) operand2;
+
+                    switch (nodeType)
+                    {
+                        case CodeNodeTypeEnum.EQ:
+                            return value1 == value2;
+                        case CodeNodeTypeEnum.NE:
+                            return value1 != value2;
+                        case CodeNodeTypeEnum.LE:
+                            return value1 <= value2;
+                        case CodeNodeTypeEnum.LT:
+                            return value1 < value2;
+                        case CodeNodeTypeEnum.GE:
+                            return value1 >= value2;
+                        case CodeNodeTypeEnum.GT:
+                            return value1 > value2; 
+                    }
+
+                }
+                else
+                {
+                    var value1 = (double)operand1;
+                    var value2 = (double)operand2;
+
+                    switch (nodeType)
+                    {
+                        case CodeNodeTypeEnum.EQ:
+                            return Math.Abs(value1 - value2) < 0.0000001;
+                        case CodeNodeTypeEnum.NE:
+                            return Math.Abs(value1 - value2) > 0.0000001;
+                        case CodeNodeTypeEnum.LE:
+                            return value1 <= value2;
+                        case CodeNodeTypeEnum.LT:
+                            return value1 < value2;
+                        case CodeNodeTypeEnum.GE:
+                            return value1 >= value2;
+                        case CodeNodeTypeEnum.GT:
+                            return value1 > value2;
+                    }
+                }
+
+
             }
 
-            //TODO AND OR
-            //TODO Relational operators
-
-            //uruchomic Binary operator
             return null;
         }
     }

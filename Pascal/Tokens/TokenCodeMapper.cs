@@ -13,13 +13,20 @@ namespace Pascal.Tokens
         public Dictionary<string, CodeNodeTypeEnum> _mapper = new
             Dictionary<string, CodeNodeTypeEnum>
         {
-           {TokenConst.Equals,CodeNodeTypeEnum.EQ},
            {TokenConst.Minus,CodeNodeTypeEnum.SUBTRACT},
            {TokenConst.Plus,CodeNodeTypeEnum.ADD},
            {TokenConst.Div,CodeNodeTypeEnum.INTEGER_DIVIDE},
            {TokenConst.Star, CodeNodeTypeEnum.MULTIPLY},
            {TokenConst.Slash,CodeNodeTypeEnum.FLOAT_DIVIDE},
-           {TokenConst.Mod,CodeNodeTypeEnum.MOD}
+           {TokenConst.Mod,CodeNodeTypeEnum.MOD},
+           {TokenConst.Equals,CodeNodeTypeEnum.EQ},
+           {TokenConst.Not_Equals,CodeNodeTypeEnum.NE},
+           {TokenConst.Less_equals,CodeNodeTypeEnum.LE},
+           {TokenConst.Less_than,CodeNodeTypeEnum.LT},
+           {TokenConst.Greater_equals,CodeNodeTypeEnum.GE},
+           {TokenConst.Greater_than,CodeNodeTypeEnum.GT},
+           {TokenConst.And,CodeNodeTypeEnum.AND},
+           {TokenConst.Or,CodeNodeTypeEnum.OR}
         };
 
 
@@ -44,7 +51,7 @@ namespace Pascal.Tokens
 
         public CodeNodeTypeEnum GetNodeEnumType(Token token)
         {
-            var tokenText = token.Text;
+            var tokenText = token.Text.ToLower();
             return GetNodeEnumType(tokenText);
         }
 

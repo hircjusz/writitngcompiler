@@ -45,7 +45,7 @@ namespace Pascal
             }
             catch (Exception ex)
             {
-                
+                throw ex;
             }
             //Token token;
             //while(!((token=scanner.extractToken()) is EofToken )){
