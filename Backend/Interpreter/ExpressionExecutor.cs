@@ -39,6 +39,12 @@ namespace Backend.Interpreter
                         }
                         return -(double)(value);
                     }
+                case CodeNodeTypeEnum.NOT:
+                {
+                    var children = node.Children[0];
+                    var value = (bool) Execute(children);
+                    return !value;
+                }
                 default:
                     return ExecuteBinaryOperator(node);
             }

@@ -17,9 +17,9 @@ namespace CompilerTest
 
 
         [TestMethod]
-        public void InterpretingTest1()
+        public void WhileTest1()
         {
-            var parser = helper.Pascal("compile", "../../Sources/InterpretingTest1.txt", "F1");
+            var parser = helper.Pascal("compile", "../../Sources/InterpretingControlStatements/While_Test1.txt", "F1");
             // parser.Parse();
             var executor=BackendFactory.Createbackend("execute");
             executor.Process(parser.Code,parser.SymTab);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Intermediate.Symbols
 {
-    public class SymTabEntry :Dictionary<SymTabEnum,object>, ISymTabEntry
+    public class SymTabEntry : Dictionary<SymTabEnum, object>, ISymTabEntry
     {
         private string name;
         private ISymTab symTab;
@@ -41,7 +41,14 @@ namespace Intermediate.Symbols
 
         public void SetAttribute(SymTabEnum key, object value)
         {
-           Add(key,value);
+            if (!this.ContainsKey(key))
+            {
+                Add(key, value);
+            }
+            else
+            {
+                this[key] = value;
+            }
         }
 
         public object GetAttribute(SymTabEnum key)

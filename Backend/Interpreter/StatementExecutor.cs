@@ -23,6 +23,10 @@ namespace Backend.Interpreter
                     var assignmentExecutor = new AssignmentExecutor();
                     return assignmentExecutor.Execute(node);
                     break;
+                case CodeNodeTypeEnum.LOOP:
+                    var loopExecutor = new LoopExecutor();
+                    return loopExecutor.Execute(node);
+
             }
             return null;
 

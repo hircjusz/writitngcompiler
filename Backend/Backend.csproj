@@ -48,6 +48,7 @@
     <Compile Include="Interpreter\Executor.cs" />
     <Compile Include="Factory\FrontenedFactory.cs" />
     <Compile Include="Interpreter\ExpressionExecutor.cs" />
+    <Compile Include="Interpreter\LoopExecutor.cs" />
     <Compile Include="Interpreter\StatementExecutor.cs" />
     <Compile Include="Listeners\BackendMessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
