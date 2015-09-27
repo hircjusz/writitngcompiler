@@ -44,8 +44,10 @@ namespace Compiler
 
         protected readonly ExceptionHandler exceptionHandler= new ExceptionHandler();
 
-      
-
+        public virtual Token Synchronize(IList<TokenType> syncSet)
+        {
+            throw new System.NotImplementedException();
+        }
 
         #region Events
 

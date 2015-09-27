@@ -12,7 +12,7 @@ namespace Pascal.Parsers
 {
     public class StatementParser : IParserStatement
     {
-        private Parser _parser;
+        protected Parser _parser;
 
         public StatementParser(Parser parser)
         {
@@ -29,17 +29,21 @@ namespace Pascal.Parsers
                 statementNode = compoundParser.Parse(token);
 
             }
-            else
+            else if (token.Type.GetType() == typeof(IdentifierToken))
+            {
+                var assignmentStatementParser = new AssignmentStatementParser(_parser);
+                statementNode = assignmentStatementParser.Parse(token);
+            }
+            else if (token.Type.GetType() == typeof(ReservedWordToken) && token.Type.GetTokenName() == PascalTokenReservedEnum.WHILE.ToString())
+            {
+                var whileStatementParser = new WhileStatementParser(_parser);
+                statementNode = whileStatementParser.Parse(token);
 
-                if (token.Type.GetType() == typeof(IdentifierToken))
-                {
-                    var assignmentStatementParser = new AssignmentStatementParser(_parser);
-                    statementNode = assignmentStatementParser.Parse(token);
-                }
-                else
-                {
-                    statementNode = CodeFactory.CreateICodeNode(CodeNodeTypeEnum.NO_OP);
-                }
+            }
+            else
+            {
+                statementNode = CodeFactory.CreateICodeNode(CodeNodeTypeEnum.NO_OP);
+            }
             SetLineNumber(statementNode, token);
             return statementNode;
         }

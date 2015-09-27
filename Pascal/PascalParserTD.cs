@@ -25,6 +25,25 @@ namespace Pascal
             this.MessageEvents += pascalMessageListener.HandleMessage;
         }
 
+        public override Token Synchronize(IList<TokenType> syncSet)
+        {
+            var listOfSyncSet = syncSet.Select(t => t.GetTokenName().ToLower()).ToArray();
+            var token = this.currentToken();
+
+            if (!listOfSyncSet.Contains(token.Type.GetTokenName().ToLower()))
+            {
+                exceptionHandler.Register(token, ParserExceptionEnum.UNEXPECTED_TOKEN);
+                do
+                {
+                    token = this.NextToken();
+                } while (!(token.Type.GetType() == typeof(EofToken)) &&
+                         !listOfSyncSet.Contains(token.Type.GetTokenName().ToLower()));
+            }
+            return token;
+        }
+
+
+
         public override void Parse()
         {
 
@@ -55,7 +74,7 @@ namespace Pascal
                 {
                     iCode.SetRoot(root);
                 }
-                
+
                 OnMessage(new Message(token.LineNum.ToString(), MessageType.PARSER_SUMMARY, new double[]
                 {
                     token.LineNum,

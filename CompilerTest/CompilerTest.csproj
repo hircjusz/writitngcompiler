@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CodeNodeTest.cs" />
+    <Compile Include="ControlStatmentsTest.cs" />
     <Compile Include="ParserExceptions.cs" />
     <Compile Include="InterpretingControlStatements.cs" />
     <Compile Include="ParsingExpressionsAndStatments.cs" />
@@ -80,6 +81,7 @@
   <ItemGroup>
     <Content Include="Sources\CodeNodeTest.txt" />
     <Content Include="Sources\CompoundTest1.txt" />
+    <Content Include="Sources\ControlStatements\While_Test1.txt" />
     <Content Include="Sources\InterpretingTest1.txt" />
     <Content Include="Sources\File1.txt" />
     <Content Include="Sources\AssignTest.txt" />

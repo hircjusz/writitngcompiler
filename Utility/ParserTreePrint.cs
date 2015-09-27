@@ -68,13 +68,6 @@ namespace Utility
             return _builder.ToString();
         }
 
-        public void PrintNode(ICodeNode codeNode)
-        {
-
-
-        }
-
-
 
     }
 }
