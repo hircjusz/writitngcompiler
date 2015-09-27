@@ -44,6 +44,7 @@
     <Compile Include="Parsers\ExpressionParser.cs" />
     <Compile Include="Parsers\IParserStatement.cs" />
     <Compile Include="Listeners\PascalParserMessageListener.cs" />
+    <Compile Include="Parsers\RepeatStatementParser.cs" />
     <Compile Include="Parsers\StatementParser.cs" />
     <Compile Include="Parsers\WhileStatementParser.cs" />
     <Compile Include="PascalParserTD.cs" />

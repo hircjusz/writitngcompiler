@@ -1,0 +1,11 @@
+﻿BEGIN
+	i:=0;
+	j:=10;
+
+		REPEAT
+		i:=i+1;
+		UNTIL i<j;
+
+
+
+END

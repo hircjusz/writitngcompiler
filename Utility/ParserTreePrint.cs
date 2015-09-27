@@ -36,6 +36,7 @@ namespace Utility
 
         public string Print(ICodeNode nodeCode, int level = 0)
         {
+            _builder.Clear();
             var attributes = nodeCode.Attributes;
             StringLevelBuilder(string.Format("+{0}", nodeCode.Type), level);
 

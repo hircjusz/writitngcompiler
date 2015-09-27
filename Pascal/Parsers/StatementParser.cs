@@ -40,6 +40,12 @@ namespace Pascal.Parsers
                 statementNode = whileStatementParser.Parse(token);
 
             }
+            else if (token.Type.GetType() == typeof(ReservedWordToken) && token.Type.GetTokenName() == PascalTokenReservedEnum.REPEAT.ToString())
+            {
+                var repeatStatementParser = new RepeatStatementParser(_parser);
+                statementNode = repeatStatementParser.Parse(token);
+
+            }
             else
             {
                 statementNode = CodeFactory.CreateICodeNode(CodeNodeTypeEnum.NO_OP);
