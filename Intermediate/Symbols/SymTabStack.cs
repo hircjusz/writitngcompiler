@@ -4,21 +4,50 @@ using System.Collections.Generic;
 
 namespace Intermediate.Symbols
 {
-    public class SymTabStack :List<ISymTab>, ISymTabStack
+    public class SymTabStack :Dictionary<int,ISymTab>, ISymTabStack
     {
         public SymTabStack(int currentNestingLevel)
         {
             this._currentNestingLevel = currentNestingLevel;
-            Add(SymTabFactory.CreateSymTab(_currentNestingLevel));
+            Add(_currentNestingLevel,SymTabFactory.CreateSymTab(_currentNestingLevel));
         }
         public SymTabStack()
         {
             this._currentNestingLevel = 0;
-            Add(SymTabFactory.CreateSymTab(_currentNestingLevel));
+            Add(_currentNestingLevel, SymTabFactory.CreateSymTab(_currentNestingLevel));
 
         }
 
         public int _currentNestingLevel;
+
+        public void Push()
+        {
+            var symTab= SymTabFactory.CreateSymTab(++_currentNestingLevel);
+            Add(_currentNestingLevel,symTab);
+        }
+
+        public void SetProgramId(ISymTabEntry entry)
+        {
+            throw new NotImplementedException();
+        }
+
+        public SymTabEntry GetProgramId()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Push(ISymTab tab)
+        {
+            Add(_currentNestingLevel, tab);
+        }
+
+        public ISymTab Pop()
+        {
+            var symTab=this[_currentNestingLevel];
+            this.Remove(_currentNestingLevel--);
+            return symTab;
+        }
+
 
         public ISymTab GetLocalSymTab()
         {
@@ -37,12 +66,31 @@ namespace Intermediate.Symbols
 
         public ISymTabEntry Lookup(string name)
         {
-            return LookupLocal(name);
+            ISymTabEntry entry = null;
+
+            for (int i = _currentNestingLevel; i >=0 && entry==null; i--)
+            {
+                entry = this[i].Lookup(name);
+            }
+            return entry;
         }
     }
 
     public interface ISymTabStack
     {
+
+
+        void Push();
+
+        void SetProgramId(ISymTabEntry entry);
+
+        SymTabEntry GetProgramId();
+
+        void Push(ISymTab tab);
+
+
+        ISymTab Pop();
+
         /**
     * Getter.
     * @return the current nesting level.

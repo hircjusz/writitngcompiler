@@ -49,6 +49,10 @@
     <Compile Include="Symbols\SymTabEnum.cs" />
     <Compile Include="Symbols\SymTabStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Type\Definition.cs" />
+    <Compile Include="Type\Predefined.cs" />
+    <Compile Include="Type\TypeFactory.cs" />
+    <Compile Include="Type\TypeSpec.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

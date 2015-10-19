@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Intermediate.Type;
 
 namespace Intermediate.Symbols
 {
@@ -17,6 +19,26 @@ namespace Intermediate.Symbols
             this.name = name;
             this.symTab = symTab;
             lineNumbers = new List<int>();
+        }
+
+        public void SetDefinition(Definition definition)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Definition GetDefinition()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetTypeSpec(ITypeSpec typeSpec)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ITypeSpec GetTypeSpec()
+        {
+            throw new NotImplementedException();
         }
 
         public string GetName()
@@ -59,6 +81,17 @@ namespace Intermediate.Symbols
 
     public interface ISymTabEntry
     {
+
+        void SetDefinition(Definition definition);
+
+        Definition GetDefinition();
+
+        void SetTypeSpec(ITypeSpec typeSpec);
+
+        ITypeSpec GetTypeSpec();
+
+
+
         /**
     * Getter.
     * @return the name of the entry.

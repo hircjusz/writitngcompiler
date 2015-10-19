@@ -34,6 +34,7 @@ namespace Utility
             }
         }
 
+
         public string Print(ICodeNode nodeCode, int level = 0)
         {
             _builder.Clear();
@@ -65,8 +66,9 @@ namespace Utility
             {
                 Print(childeNode, level + 1);
             }
-
-            return _builder.ToString();
+            var txt = _builder.ToString();
+            _builder.Clear();
+            return txt;
         }
 
 
