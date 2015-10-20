@@ -40,7 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Parsers\AssignmentStatementParser.cs" />
+    <Compile Include="Parsers\BlockParser.cs" />
     <Compile Include="Parsers\CompoundStatementParser.cs" />
+    <Compile Include="Parsers\ConstantDefinitionParser.cs" />
+    <Compile Include="Parsers\DeclarationsParser.cs" />
     <Compile Include="Parsers\ExpressionParser.cs" />
     <Compile Include="Parsers\IParserStatement.cs" />
     <Compile Include="Listeners\PascalParserMessageListener.cs" />

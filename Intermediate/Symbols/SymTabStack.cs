@@ -19,26 +19,29 @@ namespace Intermediate.Symbols
         }
 
         public int _currentNestingLevel;
+        public ISymTabEntry programId;
 
-        public void Push()
+        public ISymTab Push()
         {
             var symTab= SymTabFactory.CreateSymTab(++_currentNestingLevel);
             Add(_currentNestingLevel,symTab);
+            return symTab;
         }
 
         public void SetProgramId(ISymTabEntry entry)
         {
-            throw new NotImplementedException();
+            programId = entry;
         }
 
-        public SymTabEntry GetProgramId()
+        public ISymTabEntry GetProgramId()
         {
-            throw new NotImplementedException();
+            return programId;
         }
 
-        public void Push(ISymTab tab)
+        public ISymTab Push(ISymTab tab)
         {
             Add(_currentNestingLevel, tab);
+            return tab;
         }
 
         public ISymTab Pop()
@@ -80,13 +83,13 @@ namespace Intermediate.Symbols
     {
 
 
-        void Push();
+        ISymTab Push();
 
         void SetProgramId(ISymTabEntry entry);
 
-        SymTabEntry GetProgramId();
+        ISymTabEntry GetProgramId();
 
-        void Push(ISymTab tab);
+        ISymTab Push(ISymTab tab);
 
 
         ISymTab Pop();

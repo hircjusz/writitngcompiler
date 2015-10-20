@@ -9,6 +9,7 @@ using Compiler.Exception;
 using Compiler.Messages;
 using Intermediate.Code;
 using Intermediate.Symbols;
+using Intermediate.Type;
 using Pascal.Listeners;
 using Pascal.Parsers;
 using Pascal.Tokens;
@@ -45,6 +46,39 @@ namespace Pascal
 
 
         public override void Parse()
+        {
+            var iCode = CodeFactory.CreateICode();
+            Predefined.Initialise(this.SymTabStack);
+
+            var blockParser = new BlockParser(this);
+
+
+            var routineId = SymTabStack.EnterLocal("DummyProgramName");
+            routineId.SetDefinition(new Definition(DefinitionEnum.PROGRAM));
+            symTabStack.SetProgramId(routineId);
+
+            routineId.SetAttribute(SymTabEnum.ROUTINE_SYMTAB, symTabStack.Push());
+            routineId.SetAttribute(SymTabEnum.ROUTINE_ICODE, iCode);
+
+            try
+            {
+                var token = NextToken();
+                var rooNode = blockParser.Parse(token);
+                iCode.SetRoot(rooNode);
+                SymTabStack.Pop();
+
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        /*   public override void Parse()
         {
 
             ICode code = CodeFactory.CreateICode();
@@ -90,7 +124,7 @@ namespace Pascal
 
 
 
-        }
+        }*/
 
     }
 }

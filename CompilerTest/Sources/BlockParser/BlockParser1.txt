@@ -1,0 +1,7 @@
+﻿CONST 
+epsilon = 1;
+beta = 2;
+
+BEGIN
+ 
+END  

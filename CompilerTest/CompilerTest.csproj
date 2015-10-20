@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="CodeNodeTest.cs" />
     <Compile Include="ControlStatmentsTest.cs" />
+    <Compile Include="BlockParserTest.cs" />
     <Compile Include="ParserExceptions.cs" />
     <Compile Include="InterpretingControlStatements.cs" />
     <Compile Include="ParsingExpressionsAndStatments.cs" />
@@ -83,6 +84,7 @@
     <Content Include="Sources\CompoundTest1.txt" />
     <Content Include="Sources\ControlStatements\Repeat_Test1.txt" />
     <Content Include="Sources\ControlStatements\While_Test1.txt" />
+    <Content Include="Sources\BlockParser\BlockParser1.txt" />
     <Content Include="Sources\InterpretingControlStatements\While_Test1.txt" />
     <Content Include="Sources\InterpretingTest1.txt" />
     <Content Include="Sources\File1.txt" />

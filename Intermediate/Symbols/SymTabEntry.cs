@@ -13,6 +13,8 @@ namespace Intermediate.Symbols
         private string name;
         private ISymTab symTab;
         private IList<int> lineNumbers;
+        private Definition _definition;
+        private ITypeSpec typeSpec;
 
         public SymTabEntry(string name, ISymTab symTab)
         {
@@ -23,22 +25,22 @@ namespace Intermediate.Symbols
 
         public void SetDefinition(Definition definition)
         {
-            throw new NotImplementedException();
+            this._definition = definition;
         }
 
         public Definition GetDefinition()
         {
-            throw new NotImplementedException();
+            return _definition;
         }
 
         public void SetTypeSpec(ITypeSpec typeSpec)
         {
-            throw new NotImplementedException();
+            this.typeSpec = typeSpec;
         }
 
         public ITypeSpec GetTypeSpec()
         {
-            throw new NotImplementedException();
+            return typeSpec;
         }
 
         public string GetName()

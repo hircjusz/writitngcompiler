@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Compiler;
 
 namespace Pascal.Tokens
@@ -14,6 +15,21 @@ namespace Pascal.Tokens
         private static int counter = 16;
         public static int IDENTIFIER = counter + 1;
         public static int RESERVED_WORD = counter + 2;
+
+
+        public static IList<TokenType> GetReservedTokens(IList<PascalTokenReservedEnum> enums)
+        {
+            return enums.Select(item => new ReservedWordToken(item)).Cast<TokenType>().ToList();
+        }
+
+        public const string UndefinedToken = "Undefined";
+        public const string SpecialToken = "Special";
+        public const string IntegerToken = "Integer";
+        public const string RealToken = "Real";
+        public const string StringToken = "String";
+        public const string ErrorToken = "Error";
+        public const string IdentifierToken = "Identifier";
+
     }
 
     public enum PascalTokenReservedEnum
