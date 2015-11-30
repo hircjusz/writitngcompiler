@@ -1,0 +1,5 @@
+﻿VAR
+   var1 : integer;
+   var2,var3: range2;
+   var4:ar2;
+   var5:rec1;

@@ -1,0 +1,12 @@
+﻿rec1= RECORD
+	i:integer;
+	r:real;
+	b1,b2:boolean;
+	c:char;
+  END;
+
+rec2  =RECORD
+	ten:integer;
+	r:rec1;
+	a1,a2,a3:ARRAY [range3] OF range2;
+

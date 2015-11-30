@@ -1,0 +1,31 @@
+﻿CONST
+   factor =8;
+   epsilon =1.0e-6;
+   ch='x';
+   limit = -epsilon;
+   message='Press the OK button';
+
+TYPE 
+
+  range1= 0..factor;
+  range = 'a'..'q';
+  range3= range1;
+
+  grades={A, B,C,D,F},
+  passing=A..D;
+
+  str= ARRAY[1..10] of char;
+
+  week={monday,tuesday, wednesday,friday,saturday,sunday};
+  weekday=monday..firday;
+  weekedn=saturday..sunday;
+
+  ar1=ARRAY [grades] OF integer;
+  a2= ARRAY [(alpha,beta,gamma)] of range2;
+  ar3= ARRAY[weekday] of ar2;
+
+
+  str= ARRAY[1..10] of char;
+
+
+

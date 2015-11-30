@@ -90,6 +90,11 @@
     <Content Include="Sources\File1.txt" />
     <Content Include="Sources\AssignTest.txt" />
     <Content Include="Sources\ParserExceptions\Test1_Missing_End.txt" />
+    <Content Include="Sources\ParsingDeclarations\ParsingDeclarationsCumulate.txt" />
+    <Content Include="Sources\ParsingDeclarations\ParsingDeclarationsVar.txt" />
+    <Content Include="Sources\ParsingDeclarations\ParsingDeclarationsRecord.txt" />
+    <Content Include="Sources\ParsingDeclarations\ParsingDeclarationsType.txt" />
+    <Content Include="Sources\ParsingDeclarations\ParsingDeclarationsConst.txt" />
     <Content Include="Sources\ParsingExpressions\CompoundTest1.txt" />
     <Content Include="Sources\symTabTest.txt" />
   </ItemGroup>
