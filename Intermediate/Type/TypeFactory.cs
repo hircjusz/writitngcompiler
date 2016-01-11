@@ -14,10 +14,10 @@ namespace Intermediate.Type
             return new TypeSpec(form);
         }
 
-        //public static ITypeSpec CreateStringType(string form)
-        //{
-        //    return new TypeSpec(form);
-        //}
+        public static ITypeSpec CreateStringType(string value)
+        {
+            return new TypeSpec(value);
+        }
 
     }
 }

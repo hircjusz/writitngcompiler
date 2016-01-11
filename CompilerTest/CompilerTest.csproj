@@ -57,6 +57,7 @@
     <Compile Include="InterpretingControlStatements.cs" />
     <Compile Include="ParsingExpressionsAndStatments.cs" />
     <Compile Include="PascalHelper.cs" />
+    <Compile Include="ParsingDeclarationsConstTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SymTabTest.cs" />

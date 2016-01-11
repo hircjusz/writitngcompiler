@@ -7,7 +7,7 @@ using Intermediate.Symbols;
 
 namespace Intermediate.Type
 {
-    public class TypeSpec:Dictionary<TypeKeyEnum,Object>,ITypeSpec
+    public class TypeSpec : Dictionary<TypeKeyEnum, Object>, ITypeSpec
     {
         private TypeFormEnum form;
         private ISymTabEntry identifier;
@@ -19,6 +19,18 @@ namespace Intermediate.Type
             this.identifier = null;
         }
 
+
+        public TypeSpec(string value)
+        {
+            this.form = TypeFormEnum.ARRAY;
+            var indexType = new TypeSpec(TypeFormEnum.SUBRANGE);
+            indexType.SetAttribute(TypeKeyEnum.AARRAY_INDEX_TYPE, Predefined.IntegerType);
+            indexType.SetAttribute(TypeKeyEnum.SUBRANGE_MIN_VALUE, 0);
+            indexType.SetAttribute(TypeKeyEnum.SUBRANGE_MAX_VALUE, value.Length);
+            SetAttribute(TypeKeyEnum.AARRAY_INDEX_TYPE, indexType);
+            SetAttribute(TypeKeyEnum.ARRAY_ELEMENT_COUNT, value.Length);
+            SetAttribute(TypeKeyEnum.ARRAY_ELEMENT_TYPE, Predefined.CharType);
+        }
 
         public TypeFormEnum GetForm()
         {
@@ -35,7 +47,7 @@ namespace Intermediate.Type
             this.identifier = entry;
         }
 
-        public object GetAttribute( TypeKeyEnum key)
+        public object GetAttribute(TypeKeyEnum key)
         {
             if (this.ContainsKey(key))
             {
@@ -47,7 +59,10 @@ namespace Intermediate.Type
 
         public bool IsPascalString()
         {
-            throw new NotImplementedException();
+            if (form != TypeFormEnum.ARRAY) return false;
+            var elmtType = (ITypeSpec)GetAttribute(TypeKeyEnum.ARRAY_ELEMENT_TYPE);
+            var indexType = (ITypeSpec)GetAttribute(TypeKeyEnum.AARRAY_INDEX_TYPE);
+            return (elmtType == Predefined.CharType && indexType == Predefined.IntegerType);
         }
 
 
@@ -57,7 +72,7 @@ namespace Intermediate.Type
             {
                 throw new Exception("Podany klucz istnieje");
             }
-            Add(key,obj);
+            Add(key, obj);
         }
     }
 
@@ -68,7 +83,7 @@ namespace Intermediate.Type
         ISymTabEntry GetIdentifier();
         void SetIdentifier(ISymTabEntry entry);
         Object GetAttribute(TypeKeyEnum key);
-        void SetAttribute(TypeKeyEnum key,Object obj);
+        void SetAttribute(TypeKeyEnum key, Object obj);
         bool IsPascalString();
 
 
@@ -76,7 +91,7 @@ namespace Intermediate.Type
 
     public enum TypeFormEnum
     {
-        SCALAR, ENUMERATION,SUBRANGE,ARRAY,RECORD
+        SCALAR, ENUMERATION, SUBRANGE, ARRAY, RECORD
     }
 
     public enum TypeKeyEnum
@@ -85,10 +100,10 @@ namespace Intermediate.Type
         ENUMERATION_CONSTANTS,
 
         //SUbrange
-        SUBRANGE_INDEX_TYPE,SUBRANGE_MIN_VALUE,SUBRANGE_MAX_VALUE,
+        SUBRANGE_INDEX_TYPE, SUBRANGE_MIN_VALUE, SUBRANGE_MAX_VALUE,
 
         //ARRAY
-        AARRAY_INDEX_TYPE,ARRAY_ELEMENT_TYPE,ARRAY_ELEMENT_COUNT,
+        AARRAY_INDEX_TYPE, ARRAY_ELEMENT_TYPE, ARRAY_ELEMENT_COUNT,
 
         //REcord
         RECORD_SYMBOL
