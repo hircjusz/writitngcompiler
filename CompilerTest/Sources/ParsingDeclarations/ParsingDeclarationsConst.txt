@@ -1,6 +1,4 @@
 ﻿CONST
-   factor =8;
    epsilon =1.0e-6;
-   ch='x';
-   limit = -epsilon;
-   message='Press the OK button';
+   limit = - epsilon;
+   

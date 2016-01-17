@@ -79,14 +79,14 @@ namespace Pascal.Parsers
             if (token.Text == TokenConst.Plus || token.Text == TokenConst.Minus)
             {
                 sign = token.Text;
-                _parser.NextToken();//consume next token
+                token = _parser.NextToken();//consume next token
             }
 
             switch (token.Type.GetTokenName())
             {
                 case PascalTokenType.IdentifierToken:
                     {
-                        return ParseIdentifierConstant(token);
+                        return ParseIdentifierConstant(token, sign);
                     }
                 case PascalTokenType.IntegerToken:
                     {
@@ -117,8 +117,46 @@ namespace Pascal.Parsers
             return null;
         }
 
-        public object ParseIdentifierConstant(Token token)
+        public object ParseIdentifierConstant(Token token, string sign)
         {
+            string name = token.Text;
+            ISymTabEntry id = _parser.SymTabStack.Lookup(name);
+
+            //consume identifier
+            _parser.NextToken();
+
+            if (id == null)
+            {
+                _parser.RegisterException(token, ParserExceptionEnum.IDENTIFIER_UNDEFINED);
+                return null;
+            }
+
+            var definition = id.GetDefinition();
+            if (definition.GetDef() == DefinitionEnum.CONSTANT)
+            {
+                object value = id.GetAttribute(SymTabEnum.CONSTANT_VALUE);
+                id.AppendLineNumber(token.LineNum);
+
+                if (value is int)
+                {
+                    return sign == TokenConst.Minus ? -((int)value) : value;
+                }
+                if (value is double || value is float)
+                {
+                    return sign == TokenConst.Minus ? -((double)value) : value;
+                }
+                if (value is string)
+                {
+                    if (sign != null)
+                    {
+                        _parser.RegisterException(token, ParserExceptionEnum.INVALID_CONSTANT);
+                    }
+                    return value;
+                }
+                else return null;
+            }
+            //TODO parsing enumaration constant
+
             return null;
         }
 

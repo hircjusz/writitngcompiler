@@ -20,6 +20,10 @@ namespace Intermediate.Type
         {
             return _def.ToString().ToLower();
         }
+        public DefinitionEnum GetDef()
+        {
+            return _def;
+        }
     }
 
 
