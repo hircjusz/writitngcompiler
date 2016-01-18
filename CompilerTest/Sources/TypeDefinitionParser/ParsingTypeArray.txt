@@ -1,0 +1,5 @@
+﻿CONST
+  factor = 8;
+TYPE
+   range1 = 0 .. factor; 
+   

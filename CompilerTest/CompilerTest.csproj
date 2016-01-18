@@ -53,6 +53,7 @@
     <Compile Include="CodeNodeTest.cs" />
     <Compile Include="ControlStatmentsTest.cs" />
     <Compile Include="BlockParserTest.cs" />
+    <Compile Include="TypeDefinitionParserTest.cs" />
     <Compile Include="ParserExceptions.cs" />
     <Compile Include="InterpretingControlStatements.cs" />
     <Compile Include="ParsingExpressionsAndStatments.cs" />
@@ -98,6 +99,7 @@
     <Content Include="Sources\ParsingDeclarations\ParsingDeclarationsConst.txt" />
     <Content Include="Sources\ParsingExpressions\CompoundTest1.txt" />
     <Content Include="Sources\symTabTest.txt" />
+    <Content Include="Sources\TypeDefinitionParser\ParsingTypeArray.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sources\InterpretingExpressions\" />

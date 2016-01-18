@@ -12,4 +12,21 @@ namespace Pascal.Parsers
     {
         ICodeNode Parse(Token token);
     }
+
+    public abstract class ParserAbstractBase : IParserStatement
+    {
+
+        protected Parser _parser;
+
+        protected ParserAbstractBase(Parser parser)
+        {
+            this._parser = parser;
+        }
+
+
+        public virtual ICodeNode Parse(Token token)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

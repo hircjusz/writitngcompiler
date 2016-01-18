@@ -45,12 +45,18 @@ namespace Pascal.Parsers
             token = _parser.Synchronize(PascalTokenType.GetReservedTokens(declarations_start_set));
             if (token.Type.GetTokenName() == PascalTokenReservedEnum.CONST.ToString())
             {
-                token = _parser.NextToken();
+                token = _parser.NextToken();//consume const
                 var constantDefinitionParser = new ConstantDefinitionParser(_parser);
                 constantDefinitionParser.Parse(token);
             }
+            token = _parser.Synchronize(PascalTokenType.GetReservedTokens(type_start_set));
 
-
+            if (token.Type.GetTokenName() == PascalTokenReservedEnum.TYPE.ToString())
+            {
+                token = _parser.NextToken();//consume type
+                var typeDefinitionParser= new TypeDefinitionParser(_parser);
+                typeDefinitionParser.Parse(token);
+            }
 
             return null;
         }

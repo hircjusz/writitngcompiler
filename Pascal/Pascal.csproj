@@ -39,17 +39,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Parsers\AssignmentStatementParser.cs" />
-    <Compile Include="Parsers\BlockParser.cs" />
-    <Compile Include="Parsers\CompoundStatementParser.cs" />
-    <Compile Include="Parsers\ConstantDefinitionParser.cs" />
-    <Compile Include="Parsers\DeclarationsParser.cs" />
-    <Compile Include="Parsers\ExpressionParser.cs" />
+    <Compile Include="Parsers\DeclarationParsers\ArrayTypeParser.cs" />
+    <Compile Include="Parsers\DeclarationParsers\EnumerationTypeParser.cs" />
+    <Compile Include="Parsers\DeclarationParsers\SubrangeTypeParser.cs" />
+    <Compile Include="Parsers\ExpressionParsers\AssignmentStatementParser.cs" />
+    <Compile Include="Parsers\ExpressionParsers\BlockParser.cs" />
+    <Compile Include="Parsers\ExpressionParsers\CompoundStatementParser.cs" />
+    <Compile Include="Parsers\DeclarationParsers\ConstantDefinitionParser.cs" />
+    <Compile Include="Parsers\DeclarationParsers\DeclarationsParser.cs" />
+    <Compile Include="Parsers\ExpressionParsers\ExpressionParser.cs" />
     <Compile Include="Parsers\IParserStatement.cs" />
     <Compile Include="Listeners\PascalParserMessageListener.cs" />
-    <Compile Include="Parsers\RepeatStatementParser.cs" />
-    <Compile Include="Parsers\StatementParser.cs" />
-    <Compile Include="Parsers\WhileStatementParser.cs" />
+    <Compile Include="Parsers\DeclarationParsers\RecordTypeParser.cs" />
+    <Compile Include="Parsers\ControlParsers\RepeatStatementParser.cs" />
+    <Compile Include="Parsers\DeclarationParsers\SimpleTypeParser.cs" />
+    <Compile Include="Parsers\ExpressionParsers\StatementParser.cs" />
+    <Compile Include="Parsers\DeclarationParsers\TypeDefinitionParser.cs" />
+    <Compile Include="Parsers\DeclarationParsers\TypeSpecificationParser.cs" />
+    <Compile Include="Parsers\ControlParsers\WhileStatementParser.cs" />
     <Compile Include="PascalParserTD.cs" />
     <Compile Include="PascalScanner.cs" />
     <Compile Include="PascalToken.cs" />
