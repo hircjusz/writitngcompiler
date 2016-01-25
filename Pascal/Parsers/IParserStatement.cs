@@ -5,12 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Compiler;
 using Intermediate.Code;
+using Intermediate.Type;
 
 namespace Pascal.Parsers
 {
     interface IParserStatement
     {
         ICodeNode Parse(Token token);
+    }
+
+    interface IParserSpecification
+    {
+        ITypeSpec Parse(Token token);
     }
 
     public abstract class ParserAbstractBase : IParserStatement
@@ -25,6 +31,24 @@ namespace Pascal.Parsers
 
 
         public virtual ICodeNode Parse(Token token)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
+    public abstract class ParserAbstractSpecification : IParserSpecification
+    {
+
+        protected Parser _parser;
+
+        protected ParserAbstractSpecification(Parser parser)
+        {
+            this._parser = parser;
+        }
+
+
+        public virtual ITypeSpec Parse(Token token)
         {
             throw new NotImplementedException();
         }

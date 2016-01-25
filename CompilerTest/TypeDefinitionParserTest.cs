@@ -23,5 +23,13 @@ namespace CompilerTest
             var txt = parserTreePrinter.Print(parser.Code.GetRoot(), 0);
 
         }
+
+        [TestMethod]
+        public void ParsingEnumeration()
+        {
+            var parser = helper.Pascal("compile", "../../Sources/TypeDefinitionParser/ParsingEnumeration.txt", "F1");
+            var txt = parserTreePrinter.Print(parser.Code.GetRoot(), 0);
+
+        }
     }
 }

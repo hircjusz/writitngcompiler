@@ -99,6 +99,8 @@
     <Content Include="Sources\ParsingDeclarations\ParsingDeclarationsConst.txt" />
     <Content Include="Sources\ParsingExpressions\CompoundTest1.txt" />
     <Content Include="Sources\symTabTest.txt" />
+    <Content Include="Sources\TypeDefinitionParser\ParsingEnumeration.txt" />
+    <Content Include="Sources\TypeDefinitionParser\ParsingSubrangeType.txt" />
     <Content Include="Sources\TypeDefinitionParser\ParsingTypeArray.txt" />
   </ItemGroup>
   <ItemGroup>

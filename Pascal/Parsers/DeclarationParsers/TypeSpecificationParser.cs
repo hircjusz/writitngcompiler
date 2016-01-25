@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Compiler;
 using Intermediate.Code;
+using Intermediate.Type;
 using Pascal.Tokens;
 
 namespace Pascal.Parsers
 {
-    public class TypeSpecificationParser : ParserAbstractBase
+    public class TypeSpecificationParser : ParserAbstractSpecification
     {
         private IList<PascalTokenReservedEnum> type_start_set = new List<PascalTokenReservedEnum>()
         {
@@ -21,9 +22,10 @@ namespace Pascal.Parsers
         {
         }
 
-        public override ICodeNode Parse(Token token)
+        public override ITypeSpec Parse(Token token)
         {
-            _parser.Synchronize(PascalTokenType.GetReservedTokens(type_start_set));
+            //todo parser synchronize
+            //_parser.Synchronize(PascalTokenType.GetReservedTokens(type_start_set));
 
             switch (token.Type.GetTokenName())
             {

@@ -1,0 +1,3 @@
+﻿TYPE
+   grades = (A,B,C,D,E) ; 
+   

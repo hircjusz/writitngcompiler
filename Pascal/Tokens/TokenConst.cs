@@ -25,5 +25,9 @@ namespace Pascal.Tokens
         public const string Less_equals = "<=";
         public const string Greater_than = ">";
         public const string Greater_equals = ">=";
+        public const string Dot_dot = "..";
+        public const string Left_Parent = "(";
+        public const string Rigth_Parent = ")";
+        public const string Coma = ",";
     }
 }

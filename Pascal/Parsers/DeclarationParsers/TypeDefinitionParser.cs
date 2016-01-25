@@ -63,8 +63,14 @@ namespace Pascal.Parsers
                 }
                 if ((type!=null) && (typeId!=null))
                 {
-
+                    typeId.SetTypeSpec(type);
                 }
+
+                while (token.Text == TokenConst.Semicolon)
+                {
+                    token = _parser.NextToken(); //consume ;
+                }
+
 
             }
 

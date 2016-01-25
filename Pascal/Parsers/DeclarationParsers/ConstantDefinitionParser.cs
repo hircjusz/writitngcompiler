@@ -72,7 +72,7 @@ namespace Pascal.Parsers
             return null;
         }
 
-        private object ParseConstant(Token token)
+        public  object ParseConstant(Token token)
         {
             string sign = null;
 
@@ -117,7 +117,7 @@ namespace Pascal.Parsers
             return null;
         }
 
-        public object ParseIdentifierConstant(Token token, string sign)
+        private object ParseIdentifierConstant(Token token, string sign)
         {
             string name = token.Text;
             ISymTabEntry id = _parser.SymTabStack.Lookup(name);
@@ -160,7 +160,7 @@ namespace Pascal.Parsers
             return null;
         }
 
-        public ITypeSpec GetConstantType(object value)
+        public  ITypeSpec GetConstantType(object value)
         {
             ITypeSpec constantType = null;
 
@@ -183,8 +183,17 @@ namespace Pascal.Parsers
             return constantType;
         }
 
-        public TypeSpec GetConstantType(Token token)
+        private ITypeSpec GetConstantType(Token token)
         {
+            var id = _parser.SymTabStack.Lookup(token.Text);
+            if (id == null) return null;
+            var definition = id.GetDefinition();
+
+            if (definition.GetDef() == DefinitionEnum.CONSTANT
+                || definition.GetDef() == DefinitionEnum.ENUMERATION_CONSTANT)
+            {
+                return id.GetTypeSpec();
+            }
 
             return null;
         }
