@@ -1,3 +1,4 @@
-﻿TYPE
-   grades = (A,B,C,D,E) ; 
+﻿
+TYPE
+   subrange = (A,B,C); 
    

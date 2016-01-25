@@ -183,7 +183,7 @@ namespace Pascal.Parsers
             return constantType;
         }
 
-        private ITypeSpec GetConstantType(Token token)
+        public ITypeSpec GetConstantType(Token token)
         {
             var id = _parser.SymTabStack.Lookup(token.Text);
             if (id == null) return null;

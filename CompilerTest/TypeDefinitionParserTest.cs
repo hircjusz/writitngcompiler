@@ -31,5 +31,13 @@ namespace CompilerTest
             var txt = parserTreePrinter.Print(parser.Code.GetRoot(), 0);
 
         }
+
+        [TestMethod]
+        public void ParsingSubrangeTest()
+        {
+            var parser = helper.Pascal("compile", "../../Sources/TypeDefinitionParser/ParsingSubrangeType.txt", "F1");
+            var txt = parserTreePrinter.Print(parser.Code.GetRoot(), 0);
+
+        }
     }
 }

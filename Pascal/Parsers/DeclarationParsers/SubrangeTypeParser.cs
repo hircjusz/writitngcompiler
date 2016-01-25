@@ -50,7 +50,7 @@ namespace Pascal.Parsers.DeclarationParsers
 
             maxValue = constantDefinitionParser.ParseConstant(token);
             ITypeSpec maxType = token.Type.GetTokenName() == PascalTokenType.IdentifierToken
-                ? constantDefinitionParser.GetConstantType(token)
+                ? constantDefinitionParser.GetConstantType((object) token)
                 : constantDefinitionParser.GetConstantType(maxValue);
 
             //todo checkValue

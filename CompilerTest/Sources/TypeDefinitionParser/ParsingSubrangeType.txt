@@ -1,3 +1,8 @@
-﻿TYPE
-   range1 = 0 .. 7; 
+﻿
+CONST
+a = 0;
+b = 5;
+
+TYPE
+   range1 = a .. b; 
    
