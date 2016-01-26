@@ -26,7 +26,7 @@ namespace Compiler
 
         public  string Text
         {
-            get { return text; }
+            get { return text!=null? text.ToLower():null; }
             set { text = value; }
         }
         private Object value;

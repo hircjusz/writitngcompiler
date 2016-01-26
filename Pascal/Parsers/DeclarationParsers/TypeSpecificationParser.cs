@@ -31,7 +31,8 @@ namespace Pascal.Parsers
             {
                 case "ARRAY":
                     {
-                        return null;
+                        var arrayTypeParser= new ArrayTypeParser(_parser);
+                        return arrayTypeParser.Parse(token);
                     }
                 case "RECORD":
                     {

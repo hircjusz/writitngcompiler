@@ -28,6 +28,9 @@ namespace Pascal.Tokens
         public const string Dot_dot = "..";
         public const string Left_Parent = "(";
         public const string Rigth_Parent = ")";
+        public const string Left_Bracket = "[";
+        public const string Rigth_Bracket = "]";
         public const string Coma = ",";
+        public const string Of = "of";
     }
 }
