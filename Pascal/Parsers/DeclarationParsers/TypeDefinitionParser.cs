@@ -56,6 +56,7 @@ namespace Pascal.Parsers
 
                 var typeSpecification=new TypeSpecificationParser(_parser);
                 var type = typeSpecification.Parse(token);
+                token = _parser.CurrentToken;
 
                 if (typeId != null)
                 {
@@ -71,10 +72,9 @@ namespace Pascal.Parsers
                     token = _parser.NextToken(); //consume ;
                 }
 
-
             }
-
             return null;
+            ;
         }
 
 

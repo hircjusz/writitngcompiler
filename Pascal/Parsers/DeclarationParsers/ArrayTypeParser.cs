@@ -33,7 +33,7 @@ namespace Pascal.Parsers
 
             var elementType = ParseIndexTypeList(token, arrayType);
             //todo parse indexTypeList()
-
+            token = _parser.CurrentToken;
             if (token.Text == TokenConst.Rigth_Bracket)
             {
                 token = _parser.NextToken();//consume [
@@ -57,17 +57,18 @@ namespace Pascal.Parsers
             //todo parseElementType
             arrayType.SetAttribute(TypeKeyEnum.ARRAY_ELEMENT_TYPE, ParseElementType(token));
 
-            return null;
+            return arrayType;
         }
 
         private ITypeSpec ParseIndexTypeList(Token token, ITypeSpec typeSpec)
         {
             bool anotherIndex;
-            _parser.NextToken();//consume left bracket
+            token= _parser.NextToken();//consume left bracket
             do
             {
                 anotherIndex = false;
                 ParseIndexType(token, typeSpec);
+                token = _parser.CurrentToken;
                 if (token.Text != TokenConst.Coma && token.Text != TokenConst.Rigth_Bracket)
                 {
                     //todo error handling

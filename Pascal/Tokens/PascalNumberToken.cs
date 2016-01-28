@@ -38,7 +38,7 @@ namespace Pascal.Tokens
             {
                 IsDouble = true;
                 textBuffer.Append(',');
-                ch = NextChar();
+                ch = PeekNextChar();
                 while (Char.IsDigit(ch))
                 {
                     textBuffer.Append(ch);
