@@ -14,6 +14,7 @@ namespace Pascal.Tokens
         public const string Minus = "-";
         public const string Semicolon = ";";
         public const string Colon_Equlas = ":=";
+        public const string Colon = ":";
         public const string Or = "or";
         public const string And = "and";
         public const string Not = "not";

@@ -39,5 +39,13 @@ namespace CompilerTest
             var txt = parserTreePrinter.Print(parser.Code.GetRoot(), 0);
 
         }
+
+        [TestMethod]
+        public void ParsingRecordTypeTest()
+        {
+            var parser = helper.Pascal("compile", "../../Sources/ParsingDeclarations/ParsingDeclarationsRecord.txt", "F1");
+            var txt = parserTreePrinter.Print(parser.Code.GetRoot(), 0);
+
+        }
     }
 }

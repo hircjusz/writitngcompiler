@@ -106,7 +106,7 @@ namespace Intermediate.Type
         AARRAY_INDEX_TYPE, ARRAY_ELEMENT_TYPE, ARRAY_ELEMENT_COUNT,
 
         //REcord
-        RECORD_SYMBOL
+        RECORD_SYMBOL,RECORD_SYMTAB
 
     }
 }

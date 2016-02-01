@@ -31,12 +31,13 @@ namespace Pascal.Parsers
             {
                 case "ARRAY":
                     {
-                        var arrayTypeParser= new ArrayTypeParser(_parser);
+                        var arrayTypeParser = new ArrayTypeParser(_parser);
                         return arrayTypeParser.Parse(token);
                     }
                 case "RECORD":
                     {
-                        return null;
+                        var recordTypeParser = new RecordTypeParser(_parser);
+                        return recordTypeParser.Parse(token);
                     }
                 default:
                     {

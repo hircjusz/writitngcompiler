@@ -42,6 +42,7 @@
     <Compile Include="Parsers\DeclarationParsers\ArrayTypeParser.cs" />
     <Compile Include="Parsers\DeclarationParsers\EnumerationTypeParser.cs" />
     <Compile Include="Parsers\DeclarationParsers\SubrangeTypeParser.cs" />
+    <Compile Include="Parsers\DeclarationParsers\VariableDeclarationsParser.cs" />
     <Compile Include="Parsers\ExpressionParsers\AssignmentStatementParser.cs" />
     <Compile Include="Parsers\ExpressionParsers\BlockParser.cs" />
     <Compile Include="Parsers\ExpressionParsers\CompoundStatementParser.cs" />

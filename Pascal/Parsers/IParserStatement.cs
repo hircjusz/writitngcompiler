@@ -34,6 +34,17 @@ namespace Pascal.Parsers
         {
             throw new NotImplementedException();
         }
+
+
+        protected Token NextToken()
+        {
+            return _parser.NextToken();
+        }
+
+        protected Token CurrentToken()
+        {
+            return _parser.CurrentToken;
+        }
     }
 
 
@@ -51,6 +62,16 @@ namespace Pascal.Parsers
         public virtual ITypeSpec Parse(Token token)
         {
             throw new NotImplementedException();
+        }
+
+        protected Token NextToken()
+        {
+            return _parser.NextToken();
+        }
+
+        protected Token CurrentToken()
+        {
+            return _parser.CurrentToken;
         }
     }
 }
