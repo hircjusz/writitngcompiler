@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Compiler;
+using Pascal.Parsers.DeclarationParsers;
 using Pascal.Tokens;
 
 namespace Pascal.Parsers
@@ -49,13 +50,21 @@ namespace Pascal.Parsers
                 var constantDefinitionParser = new ConstantDefinitionParser(_parser);
                 constantDefinitionParser.Parse(token);
             }
-            token = _parser.Synchronize(PascalTokenType.GetReservedTokens(type_start_set));
+            //token = _parser.Synchronize(PascalTokenType.GetReservedTokens(type_start_set));
 
             if (token.Type.GetTokenName() == PascalTokenReservedEnum.TYPE.ToString())
             {
                 token = _parser.NextToken();//consume type
                 var typeDefinitionParser= new TypeDefinitionParser(_parser);
                 typeDefinitionParser.Parse(token);
+            }
+
+            if (token.Type.GetTokenName() == PascalTokenReservedEnum.VAR.ToString())
+            {
+                token = _parser.NextToken();//consume var
+                var variableDeclarationsParser = new VariableDeclarationsParser(_parser);
+                variableDeclarationsParser.Parse(token);
+                
             }
 
             return null;

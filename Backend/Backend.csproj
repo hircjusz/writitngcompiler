@@ -52,6 +52,11 @@
     <Compile Include="Interpreter\StatementExecutor.cs" />
     <Compile Include="Listeners\BackendMessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runtime\ActivationRecord.cs" />
+    <Compile Include="Runtime\Cell.cs" />
+    <Compile Include="Runtime\MemoryMap.cs" />
+    <Compile Include="Runtime\RuntimeDisplay.cs" />
+    <Compile Include="Runtime\RuntimeStack.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Compiler\Compiler.csproj">

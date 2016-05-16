@@ -1,0 +1,6 @@
+﻿var 
+alpha : integer;
+BEGIN
+    alpha:=8+9;
+END
+

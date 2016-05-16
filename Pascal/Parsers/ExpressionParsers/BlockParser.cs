@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Compiler;
+using Compiler.Exception;
 using Intermediate.Code;
+using Pascal.Tokens;
 
 namespace Pascal.Parsers
 {
@@ -24,9 +26,24 @@ namespace Pascal.Parsers
             var statementParser = new StatementParser(_parser);
 
             declarationsParser.Parse(token);
+            //todo token synchronize
 
+             token = _parser.CurrentToken;
+            ICodeNode rootNode = null;
 
-            return null;
+            if (token.Type.GetType() == typeof (ReservedWordToken) &&
+                token.Type.GetTokenName() == PascalTokenReservedEnum.BEGIN.ToString())
+            {
+                rootNode = statementParser.Parse(token);
+            }
+            else
+            {
+                _parser.RegisterException(token,ParserExceptionEnum.MISSING_BEGIN);
+
+                //todo parse it anyway
+            }
+
+            return rootNode;
         }
     }
 }
