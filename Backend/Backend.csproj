@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime\ActivationRecord.cs" />
     <Compile Include="Runtime\Cell.cs" />
+    <Compile Include="Runtime\MemoryFactory.cs" />
     <Compile Include="Runtime\MemoryMap.cs" />
     <Compile Include="Runtime\RuntimeDisplay.cs" />
     <Compile Include="Runtime\RuntimeStack.cs" />
