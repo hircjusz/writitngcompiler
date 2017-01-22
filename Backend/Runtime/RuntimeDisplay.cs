@@ -6,30 +6,53 @@ using System.Threading.Tasks;
 
 namespace Backend.Runtime
 {
-    public class RuntimeDisplay: IRuntimeDisplay
+    public class RuntimeDisplay : List<IActivationRecord>, IRuntimeDisplay
     {
-        public ActivationRecord GetActivationRecord()
+        public RuntimeDisplay()
         {
-            throw new NotImplementedException();
+            this.Add(null);
         }
 
-        public void CallUpdate()
+        public IActivationRecord GetActivationRecord(int nestingLevel)
         {
-            throw new NotImplementedException();
+            return this[nestingLevel];
         }
 
-        public void ReturnUpdate()
+        public void CallUpdate(int nestingLevel, IActivationRecord activationRecord)
         {
-            throw new NotImplementedException();
+            if (nestingLevel >= Count)
+            {
+                Add(activationRecord);
+            }
+            else
+            {
+                var prevAr = this[nestingLevel];
+                this[nestingLevel] = activationRecord.MakeLinkTo(prevAr);
+            }
+        }
+
+        public void ReturnUpdate(int nestingLevel)
+        {
+            int topIndex = Count - 1;
+            var ar = this[nestingLevel];
+            var prevAr = ar.LinkedTo();
+            if (prevAr != null)
+            {
+                this[nestingLevel] = prevAr;
+            }
+            else if (nestingLevel == topIndex)
+            {
+                RemoveAt(topIndex);
+            }
         }
     }
 
     public interface IRuntimeDisplay
     {
-        ActivationRecord GetActivationRecord();
-        void CallUpdate();
+        IActivationRecord GetActivationRecord(int nestingLevel);
+        void CallUpdate(int nestingLevel, IActivationRecord activationRecord);
 
-        void ReturnUpdate();
+        void ReturnUpdate(int nestingLevel);
 
     }
 

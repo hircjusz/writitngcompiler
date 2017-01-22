@@ -7,31 +7,45 @@ using System.Threading.Tasks;
 
 namespace Backend.Runtime
 {
-    public class RuntimeStack: List<ActivationRecord>,IRuntimeStack
+    public class RuntimeStack : List<IActivationRecord>, IRuntimeStack
     {
-        public List<ActivationRecord> Records()
+
+        private IRuntimeDisplay display;
+
+        public RuntimeStack()
         {
-            throw new NotImplementedException();
+            display = MemoryFactory.CreateRuntimeDisplay();
         }
 
-        public ActivationRecord GetTopMost(int nestingLevel)
+        public List<IActivationRecord> Records()
         {
-            throw new NotImplementedException();
+            return this;
+        }
+
+        public IActivationRecord GetTopMost(int nestingLevel)
+        {
+            return display.GetActivationRecord(nestingLevel);
+
         }
 
         public int CurrentNestingLevel()
         {
-            throw new NotImplementedException();
+            int topIndex = Count - 1;
+            return topIndex >= 0 ? this[topIndex].GetNestingLevel() : -1;
+
         }
 
         public void Pop()
         {
-            throw new NotImplementedException();
+           display.ReturnUpdate(this.CurrentNestingLevel());
+            RemoveAt(Count-1);
         }
 
-        public void Push(ActivationRecord activationRecord)
+        public void Push(IActivationRecord activationRecord)
         {
-            throw new NotImplementedException();
+            var nestingLevel = activationRecord.GetNestingLevel();
+            Add(activationRecord);
+            display.CallUpdate(nestingLevel,activationRecord);
         }
     }
 
@@ -41,13 +55,13 @@ namespace Backend.Runtime
         /// returns list of activations records on the stack
         /// </summary>
         /// <returns></returns>
-        List<ActivationRecord> Records();
+        List<IActivationRecord> Records();
 
         /// <summary>
         /// return the activation record on nesting level
         /// </summary>
         /// <returns></returns>
-        ActivationRecord GetTopMost(int nestingLevel);
+        IActivationRecord GetTopMost(int nestingLevel);
 
         int CurrentNestingLevel();
 
@@ -59,7 +73,7 @@ namespace Backend.Runtime
         /// <summary>
         /// wkłada rekord na stos
         /// </summary>
-        void Push(ActivationRecord activationRecord);
+        void Push(IActivationRecord activationRecord);
 
     }
 
