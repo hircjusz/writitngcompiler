@@ -65,10 +65,9 @@ namespace Pascal
                 var token = NextToken();
                 var rooNode = blockParser.Parse(token);
                 iCode.SetRoot(rooNode);
-                SymTabStack.Pop();
-
-
-
+                SymTab=SymTabStack.Pop();
+                this.Code = iCode;
+                
             }
             catch (Exception)
             {

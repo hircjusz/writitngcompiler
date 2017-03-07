@@ -49,6 +49,8 @@
     <Compile Include="Parsers\DeclarationParsers\ConstantDefinitionParser.cs" />
     <Compile Include="Parsers\DeclarationParsers\DeclarationsParser.cs" />
     <Compile Include="Parsers\ExpressionParsers\ExpressionParser.cs" />
+    <Compile Include="Parsers\FunctionsParsers\DeclaredRoutineParser.cs" />
+    <Compile Include="Parsers\FunctionsParsers\ProgramParser.cs" />
     <Compile Include="Parsers\IParserStatement.cs" />
     <Compile Include="Listeners\PascalParserMessageListener.cs" />
     <Compile Include="Parsers\DeclarationParsers\RecordTypeParser.cs" />

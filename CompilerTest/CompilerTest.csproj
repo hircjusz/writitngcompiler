@@ -83,6 +83,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sources\Chapter11-ParsingProgramsFunctions\RoutinesTest.txt" />
     <Content Include="Sources\CodeNodeTest.txt" />
     <Content Include="Sources\CompoundTest1.txt" />
     <Content Include="Sources\ControlStatements\Repeat_Test1.txt" />

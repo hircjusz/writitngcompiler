@@ -25,7 +25,7 @@ namespace Pascal.Parsers
             var declarationsParser=new DeclarationsParser(_parser);
             var statementParser = new StatementParser(_parser);
 
-            declarationsParser.Parse(token);
+            declarationsParser.Parse(token,null);
             //todo token synchronize
 
              token = _parser.CurrentToken;
