@@ -51,9 +51,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CodeNodeTest.cs" />
+    <Compile Include="CompilerTestBase.cs" />
     <Compile Include="ControlStatmentsTest.cs" />
     <Compile Include="BlockParserTest.cs" />
     <Compile Include="InterpretingPascalPrograms.cs" />
+    <Compile Include="Sources\ParsingProgramsFunctions\ParsingProgramsFunctions.cs" />
     <Compile Include="TypeDefinitionParserTest.cs" />
     <Compile Include="ParserExceptions.cs" />
     <Compile Include="InterpretingControlStatements.cs" />
@@ -83,7 +85,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sources\Chapter11-ParsingProgramsFunctions\RoutinesTest.txt" />
+    <Content Include="Sources\ParsingProgramsFunctions\Files\Procedure1.txt" />
     <Content Include="Sources\CodeNodeTest.txt" />
     <Content Include="Sources\CompoundTest1.txt" />
     <Content Include="Sources\ControlStatements\Repeat_Test1.txt" />
